@@ -1,0 +1,7 @@
+---
+title: "About the Glasgow Archery League"
+about: 
+    template: broadside
+---
+
+This site is for clubs taking part in the Glasgow Archery League. You can track scores and progress.

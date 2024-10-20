@@ -1,0 +1,5 @@
+---
+title: "Glasgow Archery League"
+---
+
+See Scores for the results of previous tournaments, and Upcoming for details about upcoming events.
