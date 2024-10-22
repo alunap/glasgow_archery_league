@@ -1,0 +1,19 @@
+project:
+  type: website
+
+website:
+  title: "Glasgow Archery League"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: Events/east_kilbride_oct.qmd
+        text: Events
+
+format:
+  html:
+    theme: vapor
+    css: styles.css
+    toc: true
+
+editor: visual

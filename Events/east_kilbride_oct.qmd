@@ -1,0 +1,97 @@
+---
+title: "East Kilbride Tournament"
+date: "2024-10-20"
+execute: 
+  echo: false
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r, install, eval=FALSE}
+install.packages("tidyverse", "here", "gt")
+```
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
+library(tidyverse)
+library(here)
+library(gt)
+library(english)
+```
+
+
+```{r}
+score_table <- function(bow, s) {
+  tbl <- archer_scores %>%
+          filter(bow == bowstyle, sex == s) %>%
+          arrange_at(c("score", "golds"), desc) %>%
+          select(c("archer", "club", "score", "hits", "golds"))
+  
+  return(tbl)
+}
+```
+
+```{r}
+archer_scores <- read.csv(here("data", "archer_scores.csv"))
+venues <- read.csv(here("data", "venues.csv"))
+current_venue <- first(venues)
+venue_name <- current_venue$venue_name
+town <- current_venue$town
+num_teams <- n_distinct(archer_scores$club)
+event_date <- current_venue$date_of_shoot
+```
+
+*Venue:* `{r} venue_name`, `{r} town`
+
+*Date:* `{r} event_date`
+
+`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except for Strathclyde which had three archers, and Orion and Linwood, which had just one person on their team.
+
+# Team Results
+
+# Individual Scores
+
+### Ladies Recurve
+
+```{r}
+#| warning: false
+lady_r <- score_table('Recurve', 'Ladies')
+knitr::kable(lady_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+```
+
+### Ladies Barebow
+
+```{r}
+lady_b <- score_table('Barebow', 'Ladies')
+knitr::kable(lady_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+```
+
+### Gents Compound
+
+```{r}
+gent_c <- score_table('Compound', 'Gents')
+knitr::kable(gent_c, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+```
+
+### Gents Recurve
+
+```{r}
+gent_r <- score_table('Recurve', 'Gents')
+knitr::kable(gent_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+```
+
+### Gents Barebow
+
+```{r}
+gent_b <- score_table('Barebow', 'Gents')
+knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+```
+
+### Gents Longbow
+
+```{r}
+gent_l <- score_table('Longbow', 'Gents')
+knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+```
