@@ -132,42 +132,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="clubs-taking-part" class="level2">
 <h2 data-anchor-id="clubs-taking-part">Clubs taking part</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 40%">
-<col style="width: 59%">
-</colgroup>
 <tbody>
 <tr class="odd">
-<td><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="data/Glasgow_archers.jpeg" class="img-fluid figure-img" width="285"></p>
-<figcaption>Glasgow Archers</figcaption>
-</figure>
-</div></td>
-<td><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="data/MAC Monk No Background.jpg" class="img-fluid figure-img" width="284"></p>
-<figcaption>Monklands Archery Club</figcaption>
-</figure>
-</div></td>
+<td><a href="https://glasgowarchers1948.co.uk/"><img src="data/Glasgow_archers.jpeg" class="img-fluid" width="285" alt="Glasgow Archers"></a></td>
+<td><a href="https://monklandsarcheryclub.azurewebsites.net/"><img src="data/MAC Monk No Background.jpg" class="img-fluid" width="284" alt="Monklands Archery Club"></a></td>
 </tr>
 <tr class="even">
-<td><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="data/orion.JPG" class="img-fluid figure-img" width="320"></p>
-<figcaption>Orion’s Archers</figcaption>
-</figure>
-</div></td>
-<td><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="data/East Kilbride Archery Club.jpg" class="img-fluid figure-img" width="285"></p>
-<figcaption>East Kilbride Archery Club</figcaption>
-</figure>
-</div></td>
+<td><img src="data/strathclyde.jpeg" class="img-fluid" width="285"></td>
+<td><img src="data/linwood.jpeg" class="img-fluid" width="285"></td>
+</tr>
+<tr class="odd">
+<td><a href="https://orionsarchers.org.uk/"><img src="data/orion.JPG" class="img-fluid" width="320" alt="Orion’s Archers"></a></td>
+<td><a href="https://www.eastkilbridearcheryclub.com/"><img src="data/East Kilbride Archery Club.jpg" class="img-fluid" width="285" alt="East Kilbride Archery Club"></a></td>
 </tr>
 </tbody>
 </table>
-<p>As well as Linwood and Strathclyde University.</p>
 
 
 </section>
@@ -259,7 +238,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/westofscotlandarchery\.quarto\.pub\/glasgow-archery-league");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
