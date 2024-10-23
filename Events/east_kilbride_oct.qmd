@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r, install, eval=FALSE}
-install.packages("tidyverse", "here", "gt")
+install.packages("tidyverse", "here", "english")
 ```
 
 ```{r, setup, include=FALSE}
@@ -17,14 +17,12 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
 library(tidyverse)
 library(here)
-library(gt)
 library(english)
 ```
 
-
 ```{r}
 score_table <- function(bow, s) {
-  tbl <- archer_scores %>%
+  tbl <- scores %>%
           filter(bow == bowstyle, sex == s) %>%
           arrange_at(c("score", "golds"), desc) %>%
           select(c("archer", "club", "score", "hits", "golds"))
@@ -34,13 +32,23 @@ score_table <- function(bow, s) {
 ```
 
 ```{r}
-archer_scores <- read.csv(here("data", "archer_scores.csv"))
-venues <- read.csv(here("data", "venues.csv"))
-current_venue <- first(venues)
+shoot_date = ymd(20241020)
+archer_scores <- read_csv(here("data", "archer_scores.csv"), col_types = "Dccciiic")
+venues <- read_csv(here("data", "venues.csv"), col_type = "Dcccc")
+current_venue <- filter(venues, date_of_shoot == shoot_date)
 venue_name <- current_venue$venue_name
 town <- current_venue$town
 num_teams <- n_distinct(archer_scores$club)
 event_date <- current_venue$date_of_shoot
+scores <- filter(archer_scores, event_date == shoot_date)
+```
+
+```{r}
+club_scores <- function(theclub)
+  tbl <- scores %>%
+          filter(club == theclub) %>%
+          arrange_at(c("score", "golds"), desc) %>%
+          select(c("archer",  "score", "hits", "golds"))
 ```
 
 *Venue:* `{r} venue_name`, `{r} town`
@@ -51,7 +59,19 @@ event_date <- current_venue$date_of_shoot
 
 # Team Results
 
-# Individual Scores
+```{r}
+team_results <- scores %>%
+  select(c(club, score, hits, golds)) %>%
+  group_by(club) %>%
+  arrange_at(c("score", "golds"), desc) %>%
+  slice_head(n=4) %>%
+  summarise(across(everything(), sum)) %>%
+  arrange_at(c("score", "golds"), desc)
+
+knitr::kable(team_results, col.names = c("Club", "Score", "Hits", "Golds"))
+```
+
+# Individual Scores - by Bowstyle
 
 ### Ladies Recurve
 
@@ -95,3 +115,49 @@ knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 gent_l <- score_table('Longbow', 'Gents')
 knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
+
+# Individual Scores - by Club
+
+::: {.panel-tabset}
+## Glasgow
+```{r}
+glas <- club_scores("Glasgow")
+knitr::kable(glas, col.names = c("Archer", "Score", "Hits", "Golds"))
+```
+
+       
+## East Kilbri
+```{r}
+ek <- club_scores("East Kilbride")
+knitr::kable(ek, col.names = c("Archer", "Score", "Hits", "Golds"))
+```
+
+      
+## Monklands
+```{r}
+monk <- club_scores("Monklands")
+knitr::kable(monk, col.names = c("Archer", "Score", "Hits", "Golds"))
+```
+
+        
+## Strathclyde
+```{r}
+strath <- club_scores("Strathclyde")
+knitr::kable(strath, col.names = c("Archer", "Score", "Hits", "Golds"))
+```
+
+        
+## Linwood
+```{r}
+lin <- club_scores("Linwood")
+knitr::kable(lin, col.names = c("Archer", "Score", "Hits", "Golds"))
+```
+
+## Orion's
+```{r}
+orion <- club_scores("Orion's")
+knitr::kable(orion, col.names = c("Archer", "Score", "Hits", "Golds"))
+```
+
+:::
+
