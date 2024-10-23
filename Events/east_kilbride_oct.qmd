@@ -23,7 +23,7 @@ library(english)
 ```{r}
 score_table <- function(bow, s) {
   tbl <- scores %>%
-          filter(bow == bowstyle, sex == s) %>%
+          filter(bowstyle == bow, sex == s) %>%
           arrange_at(c("score", "golds"), desc) %>%
           select(c("archer", "club", "score", "hits", "golds"))
   
@@ -48,7 +48,7 @@ club_scores <- function(theclub)
   tbl <- scores %>%
           filter(club == theclub) %>%
           arrange_at(c("score", "golds"), desc) %>%
-          select(c("archer",  "score", "hits", "golds"))
+          select(c("archer", "bowstyle", "score", "hits", "golds"))
 ```
 
 *Venue:* `{r} venue_name`, `{r} town`
@@ -118,46 +118,46 @@ knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 
 # Individual Scores - by Club
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Glasgow
+
 ```{r}
 glas <- club_scores("Glasgow")
-knitr::kable(glas, col.names = c("Archer", "Score", "Hits", "Golds"))
+knitr::kable(glas, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 
-       
 ## East Kilbride
+
 ```{r}
 ek <- club_scores("East Kilbride")
-knitr::kable(ek, col.names = c("Archer", "Score", "Hits", "Golds"))
+knitr::kable(ek, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 
-      
 ## Monklands
+
 ```{r}
 monk <- club_scores("Monklands")
-knitr::kable(monk, col.names = c("Archer", "Score", "Hits", "Golds"))
+knitr::kable(monk, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 
-        
 ## Strathclyde
+
 ```{r}
 strath <- club_scores("Strathclyde")
-knitr::kable(strath, col.names = c("Archer", "Score", "Hits", "Golds"))
+knitr::kable(strath, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 
-        
 ## Linwood
+
 ```{r}
 lin <- club_scores("Linwood")
-knitr::kable(lin, col.names = c("Archer", "Score", "Hits", "Golds"))
+knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 
 ## Orion's
+
 ```{r}
 orion <- club_scores("Orion's")
-knitr::kable(orion, col.names = c("Archer", "Score", "Hits", "Golds"))
+knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
-
 :::
-
