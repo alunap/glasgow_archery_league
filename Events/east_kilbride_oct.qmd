@@ -126,7 +126,7 @@ knitr::kable(glas, col.names = c("Archer", "Score", "Hits", "Golds"))
 ```
 
        
-## East Kilbri
+## East Kilbride
 ```{r}
 ek <- club_scores("East Kilbride")
 knitr::kable(ek, col.names = c("Archer", "Score", "Hits", "Golds"))
