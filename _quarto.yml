@@ -12,7 +12,7 @@ website:
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "**Next Event** - The Time Capsule, Coatbridge on November 20th"
+    content: "**Next Event** - The Time Capsule, Coatbridge on November 24th"
     type: primary
     position: below-navbar
 
