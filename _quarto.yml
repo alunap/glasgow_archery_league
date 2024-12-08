@@ -7,12 +7,12 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: Events/east_kilbride_oct.qmd
+      - href: Events/events.qmd
         text: Events
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "**Next Event** - The Time Capsule, Coatbridge on November 24th"
+    content: "**Next Event** - The Time Capsule, Coatbridge on December 21st"
     type: primary
     position: below-navbar
 

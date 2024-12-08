@@ -1,0 +1,39 @@
+---
+title: "Events"
+execute: 
+  echo: false
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
+library(tidyverse)
+library(here)
+library(english)
+source(here("functions", "utility_functions.R"))
+```
+
+## Results
+
+The following events have taken place so far:
+
+### Stage 1
+
+Venue: East Kilbride
+
+Date: 2024-10-20
+
+Details: [Stage 1: Results](east_kilbride_oct.qmd)
+
+### Stage 2
+
+Venue: Coatbridge
+
+Date: 2024-11-24
+
+Details: [Stage 2: Results](coatbridge_nov.qmd)
+
+

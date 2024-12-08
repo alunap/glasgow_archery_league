@@ -1,6 +1,6 @@
 ---
-title: "East Kilbride Tournament"
-date: "2024-10-20"
+title: "Glasgow (Coatbridge) Tournament"
+date: "2024-11-24"
 execute: 
   echo: false
 editor: visual
@@ -22,7 +22,7 @@ source(here("functions", "utility_functions.R"))
 ```
 
 ```{r}
-shoot_date = ymd(20241020)
+shoot_date = ymd(20241124)
 archer_scores <- load_archers()
 venues <- load_venues()
 current_venue <- filter(venues, date_of_shoot == shoot_date)
@@ -33,11 +33,14 @@ event_date <- current_venue$date_of_shoot
 scores <- filter(archer_scores, event_date == shoot_date)
 ```
 
+```{r}
+```
+
 *Venue:* `{r} venue_name`, `{r} town`
 
 *Date:* `{r} event_date`
 
-`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except for Strathclyde which had three archers, and Orion and Linwood, which had just one person on their team.
+`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
 
 # Team Results
 
