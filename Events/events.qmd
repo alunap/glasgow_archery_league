@@ -38,4 +38,26 @@ Date: 2024-11-24
 
 Details: [Stage 2: Results](coatbridge_nov.qmd)
 
+## Progress charts
 
+As events take place the following charts will be updated.
+
+#### How do clubs compare in the range of scores? 
+
+```{r}
+archers <- load_archers()
+scores <- filter(archers, score > 0)
+ggplot(data = scores, aes(x=club, y = score, color = bowstyle)) +
+  geom_point() +
+  labs(title = "Scores per bow style for each club",
+       subtitle = "Combined across all events")
+  
+```
+
+```{r}
+
+ggplot(data = scores, aes(x = club, y = score)) +
+  geom_boxplot() +
+  labs(title = "Boxplot showing ranges",
+       subtitle = "All bowstyles combined")
+```
