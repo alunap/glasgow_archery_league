@@ -5,3 +5,5 @@
 _publish.yml
 
 /.quarto/
+setup.R
+/_site/

@@ -12,7 +12,7 @@ website:
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "**Next Event** - The Time Capsule, Coatbridge on December 21st"
+    content: "**Next Event** - Eastwood High school, Newton Mearns on January 12th, 9AM"
     type: primary
     position: below-navbar
 

@@ -1,6 +1,6 @@
 ---
 title: "Glasgow (Coatbridge) Tournament"
-date: "2024-11-24"
+date: "2024-12-21"
 execute: 
   echo: false
 editor: visual
@@ -22,7 +22,7 @@ source(here("functions", "utility_functions.R"))
 ```
 
 ```{r}
-shoot_date = ymd(20241124)
+shoot_date = ymd(20241221)
 archer_scores <- load_archers()
 venues <- load_venues()
 current_venue <- filter(venues, date_of_shoot == shoot_date)
@@ -37,7 +37,7 @@ scores <- filter(archer_scores, event_date == shoot_date)
 
 *Date:* `{r} event_date`
 
-`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
+Six teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
 
 # Team Results
 
@@ -55,12 +55,6 @@ lady_r <- score_table('Recurve', 'Ladies', scores)
 knitr::kable(lady_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
-### Ladies Barebow
-
-```{r}
-lady_b <- score_table('Barebow', 'Ladies', scores)
-knitr::kable(lady_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
-```
 
 ### Gents Compound
 
@@ -83,10 +77,10 @@ gent_b <- score_table('Barebow', 'Gents', scores)
 knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
-### Gents Traditional
+### Ladies Traditional
 
 ```{r}
-gent_t <- score_table('Traditional', 'Gents', scores)
+gent_t <- score_table('Traditional', 'Ladies', scores)
 if (nrow(gent_t) > 0) {
     knitr::kable(gent_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 }
@@ -133,14 +127,7 @@ knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ## Orion's
 
 ```{r}
-orion <- club_scores("Orion's", scores) 
+orion <- club_scores("Orion's", scores)
 knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
-```
-
-## UWS
-
-```{r}
-uws <- club_scores("UWS", scores)
-knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 :::
