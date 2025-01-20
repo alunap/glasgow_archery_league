@@ -138,6 +138,6 @@ knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 
 ```{r}
 uws <- club_scores("UWS", scores)
-knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
+knitr::kable(uws, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 :::

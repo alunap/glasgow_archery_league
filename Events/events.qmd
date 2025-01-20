@@ -56,7 +56,7 @@ scores <- load_archers(eventDate)
 knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
 ```
 
-[Results](coatbridge_dec.qmd)
+[Detailed results](coatbridge_dec.qmd)
 
 ### Stage 4
 

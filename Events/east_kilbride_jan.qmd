@@ -126,11 +126,4 @@ knitr::kable(strath, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 lin <- club_scores("Linwood", scores)
 knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
-
-## Orion's
-
-```{r}
-orion <- club_scores("Orion's", scores)
-knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
-```
 :::

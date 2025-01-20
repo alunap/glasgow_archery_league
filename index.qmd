@@ -22,32 +22,34 @@ See the Events tab for the scores for events that have taken place so far.
 
 The current results are as follows, leaders at the top:
 
-| Club          | Oct | Nov | Dec | Jan | Total |
-|---------------|-----|-----|-----|-----|-------|
-| Glasgow       | 5   | 4   | 4   | 5   | 18    |
-| Strathclyde   | 2   | 5   | 5   | 4   | 16    |
-| East Kilbride | 4   | 3   | 3   | 3   | 13    |
-| Monklands     | 3   | 2   | 2   | 1   | 8     |
-| Orion's       | 1   | 1   | 1   | 0   | 3     |
-| Linwood       | 0   | 0   | 0   | 2   | 2     |
-| UWS           | 0   | 0   | 0   | 0   | 0     |
+| Position | Club          | Oct | Nov | Dec | Jan | Total |
+|----------|---------------|-----|-----|-----|-----|-------|
+| 1st      | Glasgow       | 5   | 4   | 4   | 4   | 17    |
+| 2nd      | Strathclyde   | 2   | 5   | 5   | 5   | 17    |
+| 3rd      | East Kilbride | 4   | 3   | 3   | 3   | 13    |
+| 4th      | Monklands     | 3   | 2   | 2   | 1   | 8     |
+| 5th      | Orion's       | 1   | 1   | 1   | 0   | 3     |
+| 6th      | Linwood       | 0   | 0   | 0   | 2   | 2     |
+| 7th      | UWS           | 0   | 0   | 0   | 0   | 0     |
 
 The points are awarded for each club as:
 
-+----------------------------------------------+---------------------+
-| Club Position in event                       | Ranking points      |
-|                                              |                     |
-| (top four archers combined scores)           |                     |
-+==============================================+=====================+
-| 1st                                          | 5                   |
-+----------------------------------------------+---------------------+
-| 2nd                                          | 4                   |
-+----------------------------------------------+---------------------+
-| 3rd                                          | 3                   |
-+----------------------------------------------+---------------------+
-| 4th                                          | 2                   |
-+----------------------------------------------+---------------------+
-| 5th                                          | 1                   |
-+----------------------------------------------+---------------------+
-| All others                                   | 0                   |
-+----------------------------------------------+---------------------+
++------------------------------------+----------------+
+| Club Position in event             | Ranking points |
+|                                    |                |
+| (top four archers combined scores) |                |
++====================================+================+
+| 1st                                | 5              |
++------------------------------------+----------------+
+| 2nd                                | 4              |
++------------------------------------+----------------+
+| 3rd                                | 3              |
++------------------------------------+----------------+
+| 4th                                | 2              |
++------------------------------------+----------------+
+| 5th                                | 1              |
++------------------------------------+----------------+
+| All others                         | 0              |
++------------------------------------+----------------+
+
+If the rank totals are tied, then the total scores of the top four archers at each event are used to break the tie. In the unlikely event that these scores too are tied, then the matter cannot be settled by bows, and it is pistols at dawn.
