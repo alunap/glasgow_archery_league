@@ -20,50 +20,93 @@ source(here("functions", "utility_functions.R"))
 
 ## Results
 
-The following events have taken place so far:
+The following events have taken place so far. Since this is a club league, rather than individual archer tournaments, we show the winning clubs for each event. For more information about the event, broken down by club, bowstyle, and sex, including all archers taking part, click on the 'Detailed results' link.
 
 ### Stage 1
 
-Venue: East Kilbride
+*Venue:* East Kilbride. *Date:* 2024-10-20
 
-Date: 2024-10-20
+```{r}
+eventDate <- ymd(20241020)
+scores <- load_archers(eventDate)
+knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+```
 
-Details: [Stage 1: Results](east_kilbride_oct.qmd)
+[Detailed results](east_kilbride_oct.qmd)
 
 ### Stage 2
 
-Venue: Coatbridge
+*Venue:* Coatbridge. *Date:* 2024-11-24
 
-Date: 2024-11-24
+```{r}
+eventDate <- ymd(20241124)
+scores <- load_archers(eventDate)
+knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+```
 
-Details: [Stage 2: Results](coatbridge_nov.qmd)
+[Detailed results](coatbridge_nov.qmd)
 
 ### Stage 3
 
-Venue: Coatbridge
+*Venue:* Coatbridge. *Date:* 2024-12-21
 
-Date: 2024-12-21
+```{r}
+eventDate <- ymd(20241221)
+scores <- load_archers(eventDate)
+knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+```
 
-Details: [Stage 3:](events/)[Results](coatbridge_dec.qmd)
+[Results](coatbridge_dec.qmd)
+
+### Stage 4
+
+*Venue:* East Kilbride. *Date:* 2025-01-12
+
+```{r}
+eventDate <- ymd(20250112)
+scores <- load_archers(eventDate)
+knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+```
+
+[Detailed results](east_kilbride_jan.qmd)
 
 ## Progress charts
 
+```{r}
+all_archers <- load_all_archers()
+scores <- filter(all_archers, score > 0)
+```
+
 As events take place the following charts will be updated.
 
-#### How do clubs compare in the range of scores?
+### Current Club Ranking
+
+### Total Club scores
+
+Here are the total scores, but it is the positions in each stage that count. East Kilbride has the highest total, yet never comes higher than 3rd, who does this add up? The club scores in each tournament are for the 4 best scores (regardless of bow style). East Kilbride has more archers shooting to add to the total, but most of those don't count. If you check the box plot below, you can also see that the average score for East Kilbride is lower than Glasgow and Strathclyde, but again it isn't the average but the top four that are counted.
 
 ```{r}
-archers <- load_archers()
-scores <- filter(archers, score > 0)
+club_scores <- scores |> 
+  count(club, wt = score) |>
+  arrange(desc(n))
+knitr::kable(club_scores, col.names = c("Club", "Score"))
+```
+
+### How do clubs compare in the range of scores?
+
+It can be interesting to see how variable the archers in a particular club are, so these two plots show everyone's scores from all of the events so far. We can also see which clubs seem to favour barebow, compound, or recurve.
+
+```{r}
+
 ggplot(data = scores, aes(x=club, y = score, color = bowstyle)) +
   geom_point() +
   labs(title = "Scores per bow style for each club",
        subtitle = "Combined across all events")
-  
 ```
 
-```{r}
+The box plot below is for all archers (not just the top 4 scorers) over all events to date. The thick black lines shows the average (mean) score, the box has the 25th and 75th quantiles, and the thin line shows the total range of scores.
 
+```{r}
 ggplot(data = scores, aes(x = club, y = score)) +
   geom_boxplot() +
   labs(title = "Boxplot showing ranges",

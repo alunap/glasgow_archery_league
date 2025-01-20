@@ -22,15 +22,12 @@ source(here("functions", "utility_functions.R"))
 ```
 
 ```{r}
-shoot_date = ymd(20241124)
-archer_scores <- load_archers()
-venues <- load_venues()
-current_venue <- filter(venues, date_of_shoot == shoot_date)
-venue_name <- current_venue$venue_name
+event_date = ymd(20241124)
+scores <- load_archers(event_date)
+current_venue <- venue(event_date)
+venue_name <- current_venue$location
 town <- current_venue$town
-num_teams <- n_distinct(archer_scores$club)
-event_date <- current_venue$date_of_shoot
-scores <- filter(archer_scores, event_date == shoot_date)
+num_teams <- n_distinct(scores$club)
 ```
 
 *Venue:* `{r} venue_name`, `{r} town`

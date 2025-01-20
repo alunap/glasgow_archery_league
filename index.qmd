@@ -7,7 +7,7 @@ execute:
 ---
 
 ```{r, install, eval=FALSE}
-install.packages("rmarkdown", "knitr", "quarto", "tidyverse", "here", "english")
+install.packages("rmarkdown", "knitr", "quarto", "tidyverse", "here", "english", "DBI", "duckdb")
 ```
 
 This is the place to keep track of what is happening in the Glasgow Archery League, organised by Iain McMillan and West of Scotland Archery Association.
@@ -16,4 +16,38 @@ See the Events tab for the scores for events that have taken place so far.
 
 ## Clubs taking part
 
-![](data/clubs.jpeg){width="700"}
+![](data/clubs.jpeg){width="641"}
+
+## League Table
+
+The current results are as follows, leaders at the top:
+
+| Club          | Oct | Nov | Dec | Jan | Total |
+|---------------|-----|-----|-----|-----|-------|
+| Glasgow       | 5   | 4   | 4   | 5   | 18    |
+| Strathclyde   | 2   | 5   | 5   | 4   | 16    |
+| East Kilbride | 4   | 3   | 3   | 3   | 13    |
+| Monklands     | 3   | 2   | 2   | 1   | 8     |
+| Orion's       | 1   | 1   | 1   | 0   | 3     |
+| Linwood       | 0   | 0   | 0   | 2   | 2     |
+| UWS           | 0   | 0   | 0   | 0   | 0     |
+
+The points are awarded for each club as:
+
++----------------------------------------------+---------------------+
+| Club Position in event                       | Ranking points      |
+|                                              |                     |
+| (top four archers combined scores)           |                     |
++==============================================+=====================+
+| 1st                                          | 5                   |
++----------------------------------------------+---------------------+
+| 2nd                                          | 4                   |
++----------------------------------------------+---------------------+
+| 3rd                                          | 3                   |
++----------------------------------------------+---------------------+
+| 4th                                          | 2                   |
++----------------------------------------------+---------------------+
+| 5th                                          | 1                   |
++----------------------------------------------+---------------------+
+| All others                                   | 0                   |
++----------------------------------------------+---------------------+

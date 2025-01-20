@@ -22,22 +22,19 @@ source(here("functions", "utility_functions.R"))
 ```
 
 ```{r}
-shoot_date = ymd(20241221)
-archer_scores <- load_archers()
-venues <- load_venues()
-current_venue <- filter(venues, date_of_shoot == shoot_date)
-venue_name <- current_venue$venue_name
+event_date = ymd(20241221)
+scores <- load_archers(event_date)
+current_venue <- venue(event_date)
+venue_name <- current_venue$location
 town <- current_venue$town
-num_teams <- n_distinct(archer_scores$club)
-event_date <- current_venue$date_of_shoot
-scores <- filter(archer_scores, event_date == shoot_date)
+num_teams <- n_distinct(scores$club)
 ```
 
 *Venue:* `{r} venue_name`, `{r} town`
 
 *Date:* `{r} event_date`
 
-Six teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
+`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
 
 # Team Results
 
@@ -54,7 +51,6 @@ knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds
 lady_r <- score_table('Recurve', 'Ladies', scores)
 knitr::kable(lady_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
-
 
 ### Gents Compound
 

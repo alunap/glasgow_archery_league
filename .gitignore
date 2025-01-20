@@ -3,7 +3,6 @@
 .RData
 .Ruserdata
 _publish.yml
-
-/.quarto/
+.quarto/
 setup.R
-/_site/
+_site/

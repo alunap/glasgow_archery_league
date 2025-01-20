@@ -1,6 +1,6 @@
 ---
-title: "East Kilbride Tournament"
-date: "2024-10-20"
+title: "East Kilbride January Tournament"
+date: "2025-01-12"
 execute: 
   echo: false
 editor: visual
@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r, install, eval=FALSE}
-install.packages("tidyverse", "here", "english")
+install.packages( "quarto", "tidyverse", "here", "english")
 ```
 
 ```{r, setup, include=FALSE}
@@ -22,7 +22,7 @@ source(here("functions", "utility_functions.R"))
 ```
 
 ```{r}
-event_date = ymd(20241020)
+event_date = ymd(20250112)
 scores <- load_archers(event_date)
 current_venue <- venue(event_date)
 venue_name <- current_venue$location
@@ -34,7 +34,7 @@ num_teams <- n_distinct(scores$club)
 
 *Date:* `{r} event_date`
 
-`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except for Strathclyde which had three archers, and Orion and Linwood, which had just one person on their team.
+`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
 
 # Team Results
 
@@ -80,11 +80,13 @@ gent_b <- score_table('Barebow', 'Gents', scores)
 knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
-### Gents Longbow
+### Ladies Traditional
 
 ```{r}
-gent_l <- score_table('Longbow', 'Gents', scores)
-knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+gent_t <- score_table('Traditional', 'Ladies', scores)
+if (nrow(gent_t) > 0) {
+    knitr::kable(gent_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+}
 ```
 
 # Individual Scores - by Club
