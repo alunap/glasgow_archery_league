@@ -70,6 +70,18 @@ knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds
 
 [Detailed results](east_kilbride_jan.qmd)
 
+### Stage 5
+
+*Venue:* Coatbridge: 2025-03-01
+
+```{r}
+eventDate <- ymd(20250301)
+scores <- load_archers(eventDate)
+knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+```
+
+[Detailed results](coatbridge_mar.qmd)
+
 ## Progress charts
 
 ```{r}
@@ -104,7 +116,7 @@ ggplot(data = scores, aes(x=club, y = score, color = bowstyle)) +
        subtitle = "Combined across all events")
 ```
 
-The box plot below is for all archers (not just the top 4 scorers) over all events to date. The thick black lines shows the average (mean) score, the box has the 25th and 75th quantiles, and the thin line shows the total range of scores.
+The box plot below is for all archers (not just the top 4 scorers) over all events to date. The thick black lines shows the average (mean) score, the box has the 25th (Q1) and 75th (Q3) quantiles (the Inter Quartile Range IQR), and the whiskers show the 'minimum' Q1 - 1.5IQR and 'maximum' Q3 + 1.5IQR range. Dots are outliers.
 
 ```{r}
 ggplot(data = scores, aes(x = club, y = score)) +

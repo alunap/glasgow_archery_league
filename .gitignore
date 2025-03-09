@@ -4,7 +4,12 @@
 .Ruserdata
 _publish.yml
 .quarto/
+duckdb
 setup.R
 _site/
 
 /.quarto/
+
+.bruin.yml
+logs/runs
+logs/*.log
