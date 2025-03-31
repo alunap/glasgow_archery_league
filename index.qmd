@@ -12,7 +12,13 @@ install.packages("rmarkdown", "knitr", "quarto", "tidyverse", "here", "english",
 
 This is the place to keep track of what is happening in the Glasgow Archery League, organised by Iain McMillan and West of Scotland Archery Association.
 
-See the Events tab for the scores for events that have taken place so far.
+See the Events tab for the scores for events that took place at each stage.
+
+## League Winners 2024/5
+
+The winner of the league for the first year is:
+
+#### Strathclyde University.
 
 ## Clubs taking part
 
@@ -20,17 +26,25 @@ See the Events tab for the scores for events that have taken place so far.
 
 ## League Table
 
-The current results are as follows, leaders at the top:
+The final results are as follows, leaders at the top:
 
-| Position | Club          | Oct | Nov | Dec | Jan | Mar | Total |
-|----------|---------------|-----|-----|-----|-----|-----|-------|
-| 1st      | Strathclyde   | 2   | 5   | 5   | 5   | 5   | 22    |
-| 2nd      | Glasgow       | 5   | 4   | 4   | 4   | 4   | 21    |
-| 3rd      | East Kilbride | 4   | 3   | 3   | 3   | 2   | 15    |
-| 4th      | Monklands     | 3   | 2   | 2   | 1   | 3   | 11    |
-| 5th      | Orion's       | 1   | 1   | 1   | 0   | 1   | 4     |
-| 6th      | Linwood       | 0   | 0   | 0   | 2   | 0   | 2     |
-| 7th      | UWS           | 0   | 0   | 0   | 0   | 0   | 0     |
++----------+---------------+------+------+------+------+-------+------+-------+
+| Position | Club          | Oct  | Nov  | Dec  | Jan  | Feb   | Mar  | Total |
++==========+===============+======+======+======+======+=======+======+=======+
+| 1st      | Strathclyde   | 2    | 5    | 5    | 5    | 5     | 5    | 27    |
++----------+---------------+------+------+------+------+-------+------+-------+
+| 2nd      | Glasgow       | 5    | 4    | 4    | 4    | 4     | 4    | 25    |
++----------+---------------+------+------+------+------+-------+------+-------+
+| 3rd      | East Kilbride | 4    | 3    | 3    | 3    | 2     | 2    | 17    |
++----------+---------------+------+------+------+------+-------+------+-------+
+| 4th      | Monklands     | 3    | 2    | 2    | 1    | 3     | 3    | 14    |
++----------+---------------+------+------+------+------+-------+------+-------+
+| 5th      | Orion's       | 1    | 1    | 1    | 0    | 1     | 0    | 4     |
++----------+---------------+------+------+------+------+-------+------+-------+
+| 6th      | Linwood       | 0    | 0    | 0    | 2    | 0     | 1    | 3     |
++----------+---------------+------+------+------+------+-------+------+-------+
+| 7th      | UWS           | 0    | 0    | 0    | 0    | 0     | 0    | 0     |
++----------+---------------+------+------+------+------+-------+------+-------+
 
 The points are awarded for each club as:
 

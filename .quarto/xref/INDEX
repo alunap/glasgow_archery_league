@@ -10,5 +10,26 @@
   },
   "Events/index.qmd": {
     "index.html": "5f78a803"
+  },
+  "Events/coatbridge-nov.qmd": {
+    "coatbridge-nov.html": "4333a1b8"
+  },
+  "Events/events.qmd": {
+    "events.html": "717c68ea"
+  },
+  "Events/coatbridge_nov.qmd": {
+    "coatbridge_nov.html": "0e7df7e4"
+  },
+  "Events/coatbridge_dec.qmd": {
+    "coatbridge_dec.html": "61040b95"
+  },
+  "Events/east_kilbride_jan.qmd": {
+    "east_kilbride_jan.html": "29fab7b9"
+  },
+  "Events/coatbridge_mar.qmd": {
+    "coatbridge_mar.html": "49ff62b9"
+  },
+  "Events/coatbridge_mar22.qmd": {
+    "coatbridge_mar22.html": "89cb87c4"
   }
 }

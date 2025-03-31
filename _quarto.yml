@@ -9,12 +9,6 @@ website:
         text: Home
       - href: Events/events.qmd
         text: Events
-  announcement: 
-    icon: info-circle
-    dismissable: true
-    content: "**Next Event** - The Time Capsule, Coatbridge on March 22nd, 12 Noon"
-    type: primary
-    position: below-navbar
 
 format:
   html:

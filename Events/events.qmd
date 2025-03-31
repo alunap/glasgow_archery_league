@@ -72,7 +72,7 @@ knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds
 
 ### Stage 5
 
-*Venue:* Coatbridge: 2025-03-01
+*Venue:* Coatbridge. *Date:* 2025-03-01
 
 ```{r}
 eventDate <- ymd(20250301)
@@ -81,6 +81,17 @@ knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds
 ```
 
 [Detailed results](coatbridge_mar.qmd)
+
+### Stage 6
+
+*Venue:* Coatbridge. *Date:* 2025-03-22
+```{r}
+eventDate <- ymd(20250322)
+scores <- load_archers(eventDate)
+knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+```
+[Detailed results](coatbridge_mar22.qmd)
+
 
 ## Progress charts
 
