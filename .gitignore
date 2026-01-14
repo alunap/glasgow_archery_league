@@ -10,3 +10,4 @@ _site/
 .quarto/
 logs/runs
 logs/*.log
+/.quarto/

@@ -18,8 +18,7 @@ This is a Quarto website project that tracks results and statistics for the Glas
 
 ### Development Workflow
 
-``` bash
-# Render the entire website
+### \# Render the entire website
 quarto render
 
 # Preview the website locally (with live reload)
@@ -31,7 +30,8 @@ quarto render Events/events.qmd
 
 # Render and preview a single document
 quarto preview Events/east_kilbride_oct.qmd
-```
+
+ {.bash}
 
 ### R Environment Management
 

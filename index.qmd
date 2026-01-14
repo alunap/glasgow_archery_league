@@ -10,40 +10,47 @@ execute:
 #install.packages("rmarkdown", "quarto", "tidyverse", "here", "english", "DBI", "duckdb")
 ```
 
+![](data/clubs.jpeg){width="641"}
+
 This is the place to keep track of what is happening in the Glasgow Archery League, organised by Iain McMillan and the clubs in the league.
 
 See the Events tab for the scores for events that took place at each stage.
 
 ## 2025/6 Schedule
-| Stage | Date | Time | Location | What3words |
-|-----|--------|--------|----------|------------|
-| 1    | 5th October | 9AM - 1PM |Eastwood High School | fluid.trip.tanks |
-| 2    | 1st November | 12PM - 4:30PM |Time Capsule | hoping.gloves.shins |
-| 3   | 13th December | 10AM - 2PM |ON-X | lure.shredder.tribes |
-| 4   | 17th January. | 12PM - 4:30PM |Time Capsule | hoping.gloves.shins |
-| 5  | 21st February | 12PM - 4:30PM | Time Capsule | hoping.gloves.shins |
-| 6 | 21st March | 12PM - 4:30PM | Time Capsule  | hoping.gloves.shins |
+
++------------+---------------+---------------+----------------------+----------------------+
+| Stage      | Date          | Time          | Location             | What3words           |
++============+===============+===============+======================+======================+
+| 1          | 5th October   | 9AM - 1PM     | Eastwood High School | fluid.trip.tanks     |
++------------+---------------+---------------+----------------------+----------------------+
+| 2          | 1st November  | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
++------------+---------------+---------------+----------------------+----------------------+
+| 3          | 13th December | 10AM - 2PM    | ON-X                 | lure.shredder.tribes |
++------------+---------------+---------------+----------------------+----------------------+
+| 4          | 17th January. | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
++------------+---------------+---------------+----------------------+----------------------+
+| 5          | 21st February | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
++------------+---------------+---------------+----------------------+----------------------+
+| 6          | 21st March    | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
++------------+---------------+---------------+----------------------+----------------------+
 
 ## Interim Results
+
 | Position | Club          | Oct | Nov | Dec | Jan | Feb | Mar | Total |
 |----------|---------------|-----|-----|-----|-----|-----|-----|-------|
-| 1st      | Strathclyde   | 4   | 5   | 4   |    |    |    | 13    |
-| 2nd      | Glasgow       | 5   | 5   | 4   |    |    |    |  14   |
-| 3rd      | East Kilbride | 2   | 2   | 2   |    |    |    | 6    |
-| 3rd      |Linwood       | 3   | 0   | 3   |    |    |    | 6     |
-| 5th      | Monklands     | 1   | 3   | 0   |    |    |    | 4    |
-| 6th      | Orion's       | 0   | 1   | 0   |    |    |    | 1     |
-| 6th      | UWS           | 0   | 0   | 1   |    |    |    | 1     |
+| 1st      | Glasgow       | 5   | 5   | 4   |     |     |     | 14    |
+| 2nd      | Strathclyde   | 4   | 5   | 4   |     |     |     | 13    |
+| 3rd      | East Kilbride | 2   | 2   | 2   |     |     |     | 6     |
+| 3rd      | Linwood       | 3   | 0   | 3   |     |     |     | 6     |
+| 5th      | Monklands     | 1   | 3   | 0   |     |     |     | 4     |
+| 6th      | Orion's       | 0   | 1   | 0   |     |     |     | 1     |
+| 6th      | UWS           | 0   | 0   | 1   |     |     |     | 1     |
 
 ## League Winners 2024/5
 
 The winner of the league for the first year was:
 
 #### Strathclyde University.
-
-## Clubs taking part
-
-![](data/clubs.jpeg){width="641"}
 
 ## League Table
 
