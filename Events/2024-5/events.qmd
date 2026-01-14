@@ -32,7 +32,7 @@ scores <- load_archer_scores(eventDate)
 knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
 ```
 
-[Detailed results](2024-5/east_kilbride_oct.qmd)
+[Detailed results](./east_kilbride_oct.qmd)
 
 ### Stage 2
 
@@ -44,7 +44,7 @@ scores <- load_archer_scores(eventDate)
 knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
 ```
 
-[Detailed results](2024-5/coatbridge_nov.qmd)
+[Detailed results](./coatbridge_nov.qmd)
 
 ### Stage 3
 
@@ -56,7 +56,7 @@ scores <- load_archer_scores(eventDate)
 knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
 ```
 
-[Detailed results](2024-5/coatbridge_dec.qmd)
+[Detailed results](./coatbridge_dec.qmd)
 
 ### Stage 4
 
@@ -68,7 +68,7 @@ scores <- load_archer_scores(eventDate)
 knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
 ```
 
-[Detailed results](2024-5/east_kilbride_jan.qmd)
+[Detailed results](./east_kilbride_jan.qmd)
 
 ### Stage 5
 
@@ -80,7 +80,7 @@ scores <- load_archer_scores(eventDate)
 knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
 ```
 
-[Detailed results](2024-5/coatbridge_mar.qmd)
+[Detailed results](./coatbridge_mar.qmd)
 
 ### Stage 6
 
@@ -92,7 +92,7 @@ scores <- load_archer_scores(eventDate)
 knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
 ```
 
-[Detailed results](2024-5/coatbridge_mar22.qmd)
+[Detailed results](./coatbridge_mar22.qmd)
 
 ## Progress charts
 
