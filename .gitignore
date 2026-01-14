@@ -7,9 +7,6 @@ _publish.yml
 duckdb
 setup.R
 _site/
-
-/.quarto/
-
-.bruin.yml
+.quarto/
 logs/runs
 logs/*.log

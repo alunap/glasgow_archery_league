@@ -7,8 +7,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: Events/events.qmd
-        text: Events
+      - href: Events/2024-5/events.qmd
+        text: 2024-5 Events
+      - href: Events/2025-6/events.qmd
+        text: 2025-6 Events (Current)
 
 format:
   html:

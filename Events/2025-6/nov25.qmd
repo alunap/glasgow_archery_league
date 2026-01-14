@@ -1,6 +1,6 @@
 ---
-title: "East Kilbride January Tournament"
-date: "2025-01-12"
+title: "November 2025 Tournament"
+date: "2025-11-01"
 execute: 
   echo: false
 editor: visual
@@ -22,15 +22,19 @@ source(here("functions", "utility_functions.R"))
 ```
 
 ```{r}
-event_date = ymd(20250112)
-scores <- load_archers(event_date)
+event_date = ymd(20251101)
+scores <- load_archer_scores(event_date)
 current_venue <- venue(event_date)
 venue_name <- current_venue$location
 town <- current_venue$town
+w3w <- current_venue$w3w
+postcode <- current_venue$postcode
 num_teams <- n_distinct(scores$club)
 ```
 
-*Venue:* `{r} venue_name`, `{r} town`
+*Venue:* `{r} venue_name`,  `{r} town`
+
+*what3words:* `{r} w3w`, *postcode:* `{r} postcode`
 
 *Date:* `{r} event_date`
 
@@ -59,11 +63,22 @@ lady_b <- score_table('Barebow', 'Ladies', scores)
 knitr::kable(lady_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
+### Ladies Traditional
+
+```{r}
+lady_t <- score_table('Traditional', 'Ladies', scores)
+if (nrow(lady_t) > 0) {
+    knitr::kable(lady_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+}
+```
+
 ### Gents Compound
 
 ```{r}
 gent_c <- score_table('Compound', 'Gents', scores)
-knitr::kable(gent_c, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+if (nrow(gent_c) > 0) {
+  knitr::kable(gent_c, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+}
 ```
 
 ### Gents Recurve
@@ -80,10 +95,10 @@ gent_b <- score_table('Barebow', 'Gents', scores)
 knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
-### Ladies Traditional
+### Gents Traditional
 
 ```{r}
-gent_t <- score_table('Traditional', 'Ladies', scores)
+gent_t <- score_table('Traditional', 'Gents', scores)
 if (nrow(gent_t) > 0) {
     knitr::kable(gent_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 }
@@ -126,4 +141,12 @@ knitr::kable(strath, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 lin <- club_scores("Linwood", scores)
 knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
+
+## Orion's
+
+```{r}
+orion <- club_scores("Orion's", scores) 
+knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
+```
+
 :::

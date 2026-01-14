@@ -23,7 +23,7 @@ source(here("functions", "utility_functions.R"))
 
 ```{r}
 event_date = ymd(20241020)
-scores <- load_archers(event_date)
+scores <- load_archer_scores(event_date)
 current_venue <- venue(event_date)
 venue_name <- current_venue$location
 town <- current_venue$town

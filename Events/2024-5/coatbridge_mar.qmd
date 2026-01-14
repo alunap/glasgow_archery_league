@@ -1,6 +1,6 @@
 ---
 title: "Glasgow (Coatbridge) Tournament"
-date: "2024-12-21"
+date: "2025-03-01"
 execute: 
   echo: false
 editor: visual
@@ -22,8 +22,8 @@ source(here("functions", "utility_functions.R"))
 ```
 
 ```{r}
-event_date = ymd(20241221)
-scores <- load_archers(event_date)
+event_date = ymd(20250301)
+scores <- load_archer_scores(event_date)
 current_venue <- venue(event_date)
 venue_name <- current_venue$location
 town <- current_venue$town
@@ -34,7 +34,7 @@ num_teams <- n_distinct(scores$club)
 
 *Date:* `{r} event_date`
 
-`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
+`{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except Linwood which had one archer on their team.
 
 # Team Results
 
@@ -73,14 +73,7 @@ gent_b <- score_table('Barebow', 'Gents', scores)
 knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
-### Ladies Traditional
-
-```{r}
-gent_t <- score_table('Traditional', 'Ladies', scores)
-if (nrow(gent_t) > 0) {
-    knitr::kable(gent_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
-}
-```
+### 
 
 # Individual Scores - by Club
 
@@ -123,7 +116,7 @@ knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ## Orion's
 
 ```{r}
-orion <- club_scores("Orion's", scores)
+orion <- club_scores("Orion's", scores) 
 knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 :::

@@ -1,5 +1,5 @@
 ---
-title: "Events"
+title: "2025-6 Events"
 execute: 
   echo: false
 editor: visual
@@ -24,87 +24,118 @@ The following events have taken place so far. Since this is a club league, rathe
 
 ### Stage 1
 
-*Venue:* East Kilbride. *Date:* 2024-10-20
-
 ```{r}
-eventDate <- ymd(20241020)
-scores <- load_archers(eventDate)
-knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+eventDate <- ymd(20251005)
+scores <- load_archer_scores(eventDate)
+current_venue <- venue(eventDate)
+venue_name <- current_venue$location
+town <- current_venue$town
+if (nrow(scores) > 0) {
+  knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+}
 ```
 
-[Detailed results](east_kilbride_oct.qmd)
+*Venue:* `{r} venue_name`. *Date:* 2025-10-05
+
+[Detailed results](oct25.qmd)
 
 ### Stage 2
 
-*Venue:* Coatbridge. *Date:* 2024-11-24
-
 ```{r}
-eventDate <- ymd(20241124)
-scores <- load_archers(eventDate)
-knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+eventDate <- ymd(20251101)
+scores <- load_archer_scores(eventDate)
+current_venue <- venue(eventDate)
+venue_name <- current_venue$location
+town <- current_venue$town
+if (nrow(scores) > 0) {
+  knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+}
 ```
 
-[Detailed results](coatbridge_nov.qmd)
+*Venue:* `{r} venue_name`. *Date:* 2025-11-01
+
+[Detailed results](nov25.qmd)
 
 ### Stage 3
 
-*Venue:* Coatbridge. *Date:* 2024-12-21
-
 ```{r}
-eventDate <- ymd(20241221)
-scores <- load_archers(eventDate)
-knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+eventDate <- ymd(20251213)
+scores <- load_archer_scores(eventDate)
+current_venue <- venue(eventDate)
+venue_name <- current_venue$location
+town <- current_venue$town
+if (nrow(scores) > 0) {
+  knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+}
 ```
 
-[Detailed results](coatbridge_dec.qmd)
+*Venue:* `{r} venue_name`. *Date:* 2025-12-13
+
+[Detailed results](dec25.qmd)
 
 ### Stage 4
 
-*Venue:* East Kilbride. *Date:* 2025-01-12
-
 ```{r}
-eventDate <- ymd(20250112)
-scores <- load_archers(eventDate)
-knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+eventDate <- ymd(20260117)
+scores <- load_archer_scores(eventDate)
+current_venue <- venue(eventDate)
+venue_name <- current_venue$location
+town <- current_venue$town
+if (nrow(scores) > 0) {
+  knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+}
 ```
 
-[Detailed results](east_kilbride_jan.qmd)
+*Venue:* `{r} venue_name`. *Date:* 2026-01-17
+
+[Detailed results](jan26.qmd)
 
 ### Stage 5
 
-*Venue:* Coatbridge. *Date:* 2025-03-01
-
 ```{r}
-eventDate <- ymd(20250301)
-scores <- load_archers(eventDate)
-knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+eventDate <- ymd(20260221)
+scores <- load_archer_scores(eventDate)
+current_venue <- venue(eventDate)
+venue_name <- current_venue$location
+town <- current_venue$town
+if (nrow(scores) > 0) {
+  knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+}
 ```
 
-[Detailed results](coatbridge_mar.qmd)
+*Venue:* `{r} venue_name`. *Date:* 2026-02-21
+
+[Detailed results](feb26.qmd)
 
 ### Stage 6
 
-*Venue:* Coatbridge. *Date:* 2025-03-22
 ```{r}
-eventDate <- ymd(20250322)
-scores <- load_archers(eventDate)
-knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+eventDate <- ymd(20260321)
+scores <- load_archer_scores(eventDate)
+current_venue <- venue(eventDate)
+venue_name <- current_venue$location
+town <- current_venue$town
+if (nrow(scores) > 0) {
+  knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+}
 ```
-[Detailed results](coatbridge_mar22.qmd)
 
+*Venue:* `{r} venue_name`. *Date:* 2026-03-21
+
+[Detailed results](mar26.qmd)
 
 ## Progress charts
 
 ```{r}
-all_archers <- load_all_archers()
-scores <- filter(all_archers, score > 0)
+all_archers <- load_all_archer_scores()
+scores <- filter(all_archers, score > 0, between(event_date, as.Date('2025-10-01'), as.Date('2026-03-30')))
 ```
 
 As events take place the following charts will be updated.
 
 ### Current Club Ranking
 
-### Total Club scores
+### Total Club scores for the season
 
 Here are the total scores, but it is the positions in each stage that count. East Kilbride has the highest total, yet never comes higher than 3rd, who does this add up? The club scores in each tournament are for the 4 best scores (regardless of bow style). East Kilbride has more archers shooting to add to the total, but most of those don't count. If you check the box plot below, you can also see that the average score for East Kilbride is lower than Glasgow and Strathclyde, but again it isn't the average but the top four that are counted.
 

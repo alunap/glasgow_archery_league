@@ -1,6 +1,6 @@
 ---
-title: "Glasgow (Coatbridge) Tournament"
-date: "2024-11-24"
+title: "East Kilbride January Tournament"
+date: "2025-01-12"
 execute: 
   echo: false
 editor: visual
@@ -22,8 +22,8 @@ source(here("functions", "utility_functions.R"))
 ```
 
 ```{r}
-event_date = ymd(20241124)
-scores <- load_archers(event_date)
+event_date = ymd(20250112)
+scores <- load_archer_scores(event_date)
 current_venue <- venue(event_date)
 venue_name <- current_venue$location
 town <- current_venue$town
@@ -80,10 +80,10 @@ gent_b <- score_table('Barebow', 'Gents', scores)
 knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
-### Gents Traditional
+### Ladies Traditional
 
 ```{r}
-gent_t <- score_table('Traditional', 'Gents', scores)
+gent_t <- score_table('Traditional', 'Ladies', scores)
 if (nrow(gent_t) > 0) {
     knitr::kable(gent_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 }
@@ -125,19 +125,5 @@ knitr::kable(strath, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```{r}
 lin <- club_scores("Linwood", scores)
 knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
-```
-
-## Orion's
-
-```{r}
-orion <- club_scores("Orion's", scores) 
-knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
-```
-
-## UWS
-
-```{r}
-uws <- club_scores("UWS", scores)
-knitr::kable(uws, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 :::

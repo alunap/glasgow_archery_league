@@ -1,0 +1,37 @@
+---
+title: "February 2026 Tournament"
+date: "2026-02-21"
+execute: 
+  echo: false
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r, install, eval=FALSE}
+install.packages( "quarto", "tidyverse", "here", "english")
+```
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
+library(tidyverse)
+library(here)
+library(english)
+source(here("functions", "utility_functions.R"))
+```
+
+```{r}
+event_date = ymd(20250322)
+scores <- load_archer_scores(event_date)
+current_venue <- venue(event_date)
+venue_name <- current_venue$location
+town <- current_venue$town
+num_teams <- n_distinct(scores$club)
+```
+
+*Venue:* `{r} venue_name`, `{r} town`
+
+*Date:* `{r} event_date`
+
+**Results will appear here once the tournament has taken place**

@@ -4,34 +4,35 @@
 library(DBI)
 library(duckdb)
 library(tidyverse)
-library(dbplyr)
 library(glue)
-here::i_am("functions/utility_functions.R")
+library(xlsx)
 library(here)
-
+here::i_am("functions/utility_functions.R")
 
 # Load the archer scores
-load_archers <- function(theDate) {
+load_archer_scores <- function(theDate) {
   conduck <- DBI::dbConnect(duckdb::duckdb(), dbdir = here("data", "data.db"))
-  stmnt <- glue("SELECT e.event_date, e.score, e.hits, e.golds, a.archer, a.bowstyle, a.club, a.sex, v.location
+  stmnt <- glue("SELECT e.date_of_event AS event_date, s.score, s.hits, s.golds, a.archer, a.bowstyle, a.club, a.sex, v.location
             FROM events e
-            LEFT JOIN archers a ON a.id = e.archer_id
-            LEFT JOIN venues v ON  e.venue_id = v.id
-            WHERE e.event_date = '{theDate}'
-            ORDER BY archer;")
+               LEFT JOIN venues v ON e.venue_id = v.id
+               INNER JOIN event_scores s ON e.id = s.event_id
+               INNER JOIN archers a ON s.archer_id = a.id
+            WHERE e.date_of_event = '{theDate}'
+            ORDER BY a.archer;")
   query <- dbSendQuery(conduck, stmnt)
   scores <- dbFetch(query) |> as_tibble()
   DBI::dbDisconnect(conduck)
   return(scores)
 }
 
-load_all_archers <- function() {
+load_all_archer_scores <- function() {
   conduck <- DBI::dbConnect(duckdb::duckdb(), dbdir = here("data", "data.db"))
-  stmnt <- "SELECT e.event_date, e.score, e.hits, e.golds, a.archer, a.bowstyle, a.club, a.sex, v.location
+  stmnt <- "SELECT e.date_of_event AS event_date, s.score, s.hits, s.golds, a.archer, a.bowstyle, a.club, a.sex, v.location
             FROM events e
-            LEFT JOIN archers a ON a.id = e.archer_id
-            LEFT JOIN venues v ON  e.venue_id = v.id
-            ORDER BY archer;"
+               LEFT JOIN venues v ON e.venue_id = v.id
+               INNER JOIN event_scores s ON e.id = s.event_id
+               INNER JOIN archers a ON s.archer_id = a.id
+            ORDER BY a.archer;"
   query <- dbSendQuery(conduck, stmnt)
   scores <- dbFetch(query) |> as_tibble()
   DBI::dbDisconnect(conduck)
@@ -40,11 +41,11 @@ load_all_archers <- function() {
 
 venue <- function(theDate) {
   conduck <- DBI::dbConnect(duckdb::duckdb(), dbdir = here("data", "data.db"))
-  stmnt <- glue("SELECT e.event_date, v.location, v.town, v.postcode, v.w3w, v.lat, v.lon
+  stmnt <- glue("SELECT e.date_of_event AS event_date, v.location, v.town, v.postcode, v.w3w, v.lat, v.lon
             FROM events e
             LEFT JOIN venues v ON e.venue_id = v.id
-            WHERE e.event_date = '{theDate}'
-            LIMIT 1" )
+            WHERE e.date_of_event = '{theDate}'
+            LIMIT 1;" )
   query <- dbSendQuery(conduck, stmnt)
   venues <- dbFetch(query)
   DBI::dbDisconnect(conduck)
@@ -76,5 +77,3 @@ team_results <- function(thescores) {
     summarise(across(score:golds, sum)) |> 
     arrange_at(c("score", "golds"), desc)
 }
-
-
