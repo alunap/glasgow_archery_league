@@ -18,7 +18,7 @@ connect <- function() {
                         host = "localhost",
                         port = 5432,
                         user = "postgres",
-                        password = "mysecretpassword"
+                        password = "strawberrySundae"
       )
   })
 }
