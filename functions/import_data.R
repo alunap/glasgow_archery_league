@@ -71,49 +71,9 @@ new_archers <- anti_join(these_archers, current_archers, by="archer")
 add_new_archers <- function(new_archers, current_archers, con){
   max_id <- max(current_archers$id)
   mutate(new_archers, id=row_number() + max_id)
-  rows_insert(current_archers, new_archers, in_place=FALSE)
+  dbWriteTable(con, "archers", new_archers, append = TRUE)
 }
 
 add_new_archers(new_archers, current_archers, conn)
 
-
-# test new structure
-
-################################################
-#.  Load data from Postgress into DuckDB       #
-################################################
-load_archer_scores <- function(conn, theDate) {
-  stmnt <- ifelse(theDate == 0, "SELECT * FROM event_scores;", glue("SELECT * FROM event_results WHERE date_of_event = '{theDate}';"))
-  query <- dbSendQuery(conn, stmnt)
-  scores <- dbFetch(query) |> as_tibble()
-  return(scores)
-}
-
-load_venues <- function(conn) {
-  query <- dbSendQuery(conn, "SELECT * FROM venues;")
-  venues <- dbFetch(query) |> as_tibble()
-}
-
-load_events <- function(conn) {
-  query <- dbSendQuery(conn, "SELECT * FROM events;")
-  events <- dbFetch(query) |> as_tibble()
-}
-
-
-eventDate <- ymd(20251121)
-
-all_scores <- load_archer_scores(conn, 0)
-all_venues <- load_venues(conn)
-all_events <- load_events(conn) 
-all_archers <- load_current_archers(conn)
-
-
-
-conduck <- DBI::dbConnect(duckdb::duckdb(), dbdir = here("data", "data.db"))
-dbWriteTable(conduck, 'events', all_events, overwrite=TRUE)
-dbWriteTable(conduck, 'event_scores', all_scores, overwrite=TRUE)
-dbWriteTable(conduck, 'venues', all_venues, overwrite=TRUE)
-dbWriteTable(conduck, 'archers', all_archers, overwrite=TRUE)
-
 DBI::dbDisconnect(conn)
-DBI::dbDisconnect(conduck)
