@@ -1,5 +1,5 @@
 #
-#### Functions generally useful across pages ####
+#### Functions generally useful across pages. These functions are used by the pages themselves, not part of setting up new data ####
 #
 library(DBI)
 library(duckdb)
