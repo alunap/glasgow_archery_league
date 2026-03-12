@@ -5,7 +5,10 @@
 _publish.yml
 .quarto/
 _site/
-.quarto/
 logs/runs
 logs/*.log
 /.quarto/
+*.history
+index-checkpoint.qmd
+setup-checkpoint.R
+utility_functions-checkpoint.R

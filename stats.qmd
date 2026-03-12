@@ -1,0 +1,66 @@
+---
+title: "Statistics"
+about:
+  template: jolla
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r, setup, include=FALSE}
+library(knitr)
+library(rmarkdown)
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
+library(tidyverse)
+library(here)
+library(english)
+source(here("functions", "utility_functions.R"))
+```
+
+## Club Statistics
+
+```{r}
+scores <- load_all_archer_scores()
+
+```
+
+## Archer Statistics
+
+Here we check the scores so far against the Glasgow Rose categories to see how many people have a personal best in each category.
+
+```{r}
+badges <- load_badges()
+best_scores <- load_best_scores()
+```
+
+```{r}
+scores_with_badge <- best_scores %>%
+  # Join all possible badges for the archer's bowstyle
+  left_join(badges, by = "bowstyle") %>%
+  # Keep only badges where the score is at least the minimum
+  filter(score >= minimum) %>%
+  # For each archer, bowstyle, and score, keep the badge with the highest min_score
+  group_by(archer, bowstyle, score) %>%
+  filter(minimum == max(minimum)) %>%
+  ungroup() %>%
+  select(archer, bowstyle, score, badge)
+```
+
+```{r}
+badge_counts <- scores_with_badge %>%
+  count(badge, name = "total")
+```
+
+```{r}
+badge_levels <- c("Pink", "Green", "White", "Black", "Blue", "Red", "Gold", "Purple")
+
+badge_counts <- badge_counts %>%
+  mutate(badge = factor(badge, levels = badge_levels, ordered = TRUE))
+
+ggplot(badge_counts, aes(x = badge, y = total)) +
+  geom_col() +
+  scale_x_discrete(drop = FALSE) +
+  labs(title = "Number of Each Badge Colour", x = "Badge Colour", y = "Count") +
+  theme_minimal()
+```
