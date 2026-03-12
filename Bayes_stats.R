@@ -1,163 +1,167 @@
 library(nimble)
 library(dplyr)
-library(coda)
+library(tidyr)
 
-# 1. Data preparation ────────────────────────────────────────────────
+# 1. Data preparation (example for one bowstyle)
 d <- read.csv("all_scores.csv") |>
-  mutate(
-    event_date = as.Date(event_date),
-    archer     = as.factor(archer),
-    bowstyle   = as.factor(bowstyle),
-    event      = as.factor(event_date)
-  )
+  mutate(event = factor(event_date),
+         archer = factor(archer),
+         bowstyle = factor(bowstyle))
 
-# Drop no-shows
-d <- d |> filter(score > 0)
+# Pick one bowstyle to model (repeat for others)
+sty <- "Recurve"           # change to "Barebow", "Compound", etc.
+d_sub <- d |> filter(bowstyle == sty)
 
-# Example: focus on Recurve (largest group)
-d_sub <- d |> filter(bowstyle == "Recurve")
+# Create integer indices
+archer_idx <- as.integer(d_sub$archer)
+event_idx  <- as.integer(d_sub$event)
 
-# Indices (1-based for NIMBLE)
-archer_idx   <- as.integer(d_sub$archer)
-event_idx    <- as.integer(d_sub$event)
-N_obs        <- nrow(d_sub)
-N_archer     <- nlevels(d_sub$archer)
-N_event      <- nlevels(d_sub$event)
+N_obs    <- nrow(d_sub)
+N_archer <- nlevels(d_sub$archer)
+N_event  <- nlevels(d_sub$event)
 
-# Constants & data list
+# Constants and data list
 constants <- list(
-  N_obs     = N_obs,
-  N_archer  = N_archer,
-  N_event   = N_event,
-  archer    = archer_idx,
-  event     = event_idx
+  N_obs    = N_obs,
+  N_archer = N_archer,
+  N_event  = N_event,
+  archer   = archer_idx,
+  event    = event_idx,
+  y        = d_sub$score
 )
 
-data <- list(
-  score = d_sub$score
-)
+data <- list(y = d_sub$score)   # will be overwritten in model
 
-# 2. NIMBLE model ─────────────────────────────────────────────────────
-code <- nimbleCode({
+# 2. NIMBLE model code
+archery_code <- nimbleCode({
   
-  # Hyperpriors ────────────────────────────────────────
-  mu        ~ dnorm(480, sd = 80)          # central tendency (Recurve-ish)
-  tau_arch  ~ T(dnorm(0, sd = 80), 0, )    # between-archer SD
-  tau_event ~ T(dnorm(0, sd = 40), 0, )    # between-event SD
-  sigma     ~ T(dnorm(0, sd = 50), 0, )    # residual
+  # Grand mean (location) ────────────────
+  mu ~ dnorm(mean = 480, sd = 120)         # informative for most styles
   
-  # Varying effects ────────────────────────────────────
-  for (i in 1:N_archer) {
-    z_arch[i]   ~ dnorm(0, 1)              # standard normal
-    theta[i]  <- mu + tau_arch * z_arch[i]
+  # Variance components ──────────────────
+  tau_archer ~ T(dt(0, pow(0.02, -0.5), 1), 0, )   # half-t ≈ half-Cauchy
+  tau_event  ~ T(dt(0, pow(0.04, -0.5), 1), 0, )   # smaller tournament effect
+  sigma      ~ T(dt(0, pow(0.04, -0.5), 1), 0, )   # residual
+  
+  nu ~ dunif(2, 30)                          # student-t df (robustness)
+  
+  # Random effects ───────────────────────
+  for (j in 1:N_archer) {
+    z_archer[j] ~ dnorm(0, 1)
+    mu_archer[j] <- mu + tau_archer * z_archer[j]
   }
   
   for (t in 1:N_event) {
-    z_event[t]  ~ dnorm(0, 1)
-    alpha[t]  <- tau_event * z_event[t]
+    z_event[t] ~ dnorm(0, 1)
+    alpha_event[t] <- tau_event * z_event[t]
   }
   
-  # Likelihood ─────────────────────────────────────────
+  # Likelihood ───────────────────────────
   for (i in 1:N_obs) {
-    score[i] ~ dt(mu    = theta[archer[i]] + alpha[event[i]],
-                  tau   = 1 / sigma^2,
-                  df    = 4)               # nu=4 → reasonably heavy tails
+    mu_i[i] <- mu_archer[archer[i]] + alpha_event[event[i]]
+    y[i] ~ dt(mu = mu_i[i], tau = 1/(sigma*sigma), df = nu)
+    
+    # Soft truncation via post-calc (or use truncated student if needed)
+    # For strict [0,600] bounds, one can add a custom truncated_dstudent
   }
   
-  # Derived / monitoring (optional)
-  log_lik[1:N_obs] <- score[1:N_obs] - score[1:N_obs]   # placeholder if needed
+  # Derived / monitored quantities
+  for (i in 1:N_obs) {
+    resid[i] <- (y[i] - mu_i[i]) / sigma
+  }
 })
 
-# 3. Build & compile ──────────────────────────────────────────────────
-modelInfo <- list(code = code, constants = constants, data = data)
+# 3. Build & compile the model
+archery_model <- nimbleModel(
+  archery_code,
+  constants  = constants,
+  data       = data,
+  inits      = list(
+    mu         = mean(d_sub$score, na.rm=TRUE),
+    tau_archer = sd(d_sub$score)*0.8,
+    tau_event  = sd(d_sub$score)*0.3,
+    sigma      = sd(d_sub$score)*0.4,
+    nu         = 8,
+    z_archer   = rep(0, N_archer),
+    z_event    = rep(0, N_event)
+  )
+)
 
-nimMod <- nimbleModel(code, constants, data)
+C_archery <- compileNimble(archery_model)
 
-Cmod <- compileNimble(nimMod)
+# 4. Configure & run MCMC
+mcmc_conf <- configureMCMC(
+  archery_model,
+  monitors = c("mu", "tau_archer", "tau_event", "sigma", "nu",
+               "mu_archer", "alpha_event"),
+  thin = 1, useConjugacy = TRUE
+)
 
-# 4. Configure & build MCMC ───────────────────────────────────────────
-monitors <- c("mu", "tau_arch", "tau_event", "sigma",
-              "theta", "alpha")   # theta = archer abilities
+mcmc_build <- buildMCMC(mcmc_conf)
+C_mcmc <- compileNimble(mcmc_build, project = archery_model)
 
-mcmcConf <- configureMCMC(nimMod, monitors = monitors,
-                          enableWAIC = FALSE, print = TRUE)
+# Run (adjust niter / nburnin as needed)
+C_mcmc$run(niter = 25000, nburnin = 5000, progressBar = TRUE)
 
-mcmcBuild <- buildMCMC(mcmcConf)
-Cmcmc <- compileNimble(mcmcBuild, project = nimMod)
+# Extract samples
+samples <- as.matrix(C_mcmc$mvSamples)
 
-# 5. Run MCMC
-set.seed(123)
-Cmcmc$run(niter = 25000, nburnin = 5000, thin = 10, progress = TRUE)
+# Quick diagnostics
+library(coda)
+plot(mcmc(samples[, c("mu", "tau_archer", "sigma")]))
 
-samples <- as.matrix(Cmcmc$mvSamples)
+# 5. Posterior predictive simulation ───────────────────────────────
 
-# Quick check
-summary(samples[, c("mu", "tau_arch", "tau_event", "sigma")])
-
-# 6. Posterior predictive simulation for next tournament ───────────────
-
-predict_next_nimble <- function(samples, nsim = 1000, M = 35, p_known = 0.75,
-                                badge_thresholds = c(Pink=330, Green=395, White=450,
-                                                     Black=495, Blue=525, Red=550,
-                                                     Gold=570, Purple=585)) {
+# Function to simulate one future tournament
+simulate_next_tournament <- function(samples, M = 35, p_known = 0.75, nsim = 1000) {
   
   nsamples <- nrow(samples)
-  idx <- sample(1:nsamples, nsim, replace = TRUE)  # with replacement ok
-  
-  results <- matrix(NA, nsim, length(badge_thresholds) + 4)
-  colnames(results) <- c("mean_score", "max_score", "sd_score", "n_above_500",
-                         names(badge_thresholds))
+  pred_scores <- matrix(NA, nsim, M)
   
   for (s in 1:nsim) {
-    row <- samples[idx[s], ]
-    
-    mu_s        <- row["mu"]
-    tau_arch_s  <- row["tau_arch"]
-    tau_event_s <- row["tau_event"]
-    sigma_s     <- row["sigma"]
+    idx <- sample(1:nsamples, 1)
+    draw <- samples[idx, ]
     
     # New tournament effect
-    alpha_new <- rnorm(1, 0, tau_event_s)
+    alpha_new <- rnorm(1, 0, draw["tau_event"])
     
     # Approximate participant pool
     n_known <- rbinom(1, M, p_known)
     n_new   <- M - n_known
     
-    # Known archers ≈ draw from fitted posterior random effects
-    theta_known <- rnorm(n_known, 0, tau_arch_s)   # centered
+    # Known archers: sample from fitted posterior random effects
+    theta_known <- rnorm(n_known, 0, draw["tau_archer"])
     
-    # Completely new archers from population
-    theta_new   <- rnorm(n_new, 0, tau_arch_s)
+    # New archers: from population
+    theta_new   <- rnorm(n_new, 0, draw["tau_archer"])
     
-    theta_all <- c(theta_known, theta_new)
+    theta_all   <- c(theta_known, theta_new)
     
-    # Generate scores (Student-t)
-    y <- mu_s + theta_all + alpha_new + sigma_s * rt(length(theta_all), df = 4)
+    # Generate scores
+    mu_pred <- draw["mu"] + theta_all + alpha_new
+    y_pred  <- rt(length(mu_pred), df = draw["nu"]) * draw["sigma"] + mu_pred
     
-    # Clip to realistic range (rarely triggered)
-    y <- pmax(0, pmin(600, round(y)))
+    # Enforce bounds (soft truncation)
+    y_pred <- pmax(0, pmin(600, round(y_pred)))
     
-    # Summaries
-    results[s, "mean_score"]    <- mean(y)
-    results[s, "max_score"]     <- max(y)
-    results[s, "sd_score"]      <- sd(y)
-    results[s, "n_above_500"]   <- sum(y >= 500)
-    
-    # Badge claims (at least one archer reaches threshold)
-    for (b in seq_along(badge_thresholds)) {
-      results[s, names(badge_thresholds)[b]] <- as.integer(any(y >= badge_thresholds[b]))
-    }
+    pred_scores[s, 1:length(y_pred)] <- y_pred
   }
   
-  return(results)
+  pred_scores
 }
 
-# Run prediction
-pred <- predict_next_nimble(samples, nsim = 2000, M = 35, p_known = 0.75)
+# Example: simulate 2000 predictive tournaments of size 35
+pred_recurve <- simulate_next_tournament(samples, M = 35, p_known = 0.75, nsim = 2000)
 
-# Summarise
-round(colMeans(pred) * 100, 1)[5:ncol(pred)]     # % of sims where badge claimed
-apply(pred[,5:ncol(pred)], 2, quantile, probs = c(0.05,0.5,0.95))
+# Summarise score spread
+quantile(pred_recurve, probs = c(0.025, 0.05, 0.25, 0.5, 0.75, 0.95, 0.975), na.rm=TRUE)
 
-# Visuals
-hist(pred[,"max_score"], breaks = 40, main = "Predicted max score (next event)")
+# Badge probabilities (load badges.csv and filter for bowstyle)
+badges <- read.csv("badges.csv") |> filter(bowstyle == "Recurve")
+thr <- setNames(badges$minimum, badges$badge)
+
+prob_badge_claimed <- sapply(thr, function(t) {
+  mean(apply(pred_recurve, 1, function(row) any(row >= t, na.rm=TRUE)))
+})
+
+round(prob_badge_claimed * 100, 1)   # in %
