@@ -32,7 +32,7 @@ postcode <- current_venue$postcode
 num_teams <- n_distinct(scores$club)
 ```
 
-*Venue:* `{r} venue_name`,  `{r} town`
+*Venue:* `{r} venue_name`, `{r} town`
 
 *what3words:* `{r} w3w`, *postcode:* `{r} postcode`
 
@@ -148,5 +148,4 @@ knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 orion <- club_scores("Orion's", scores) 
 knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
-
 :::

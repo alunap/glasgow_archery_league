@@ -96,7 +96,7 @@ knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ### Gents Longbow
 
 ```{r}
-gent_l <- score_table('Longbow', 'Gents', scores)
+gent_l <- score_table('Traditional', 'Gents', scores)
 if (nrow(gent_l) > 0) {
   knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 }

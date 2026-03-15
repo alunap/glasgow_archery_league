@@ -34,7 +34,6 @@ num_teams <- n_distinct(scores$club)
 
 *Date:* `{r} event_date`
 
-
 `{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
 
 # Team Results
@@ -161,4 +160,3 @@ if (nrow(uws) > 0) {
 }
 ```
 :::
-

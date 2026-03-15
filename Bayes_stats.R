@@ -6,8 +6,8 @@ library(tidyr)
 d <- read.csv("all_scores.csv") |>
   mutate(event = factor(event_date),
          archer = factor(archer),
-         bowstyle = factor(bowstyle))
-
+         bowstyle = factor(bowstyle)) |>
+  filter(score > 0)
 # Pick one bowstyle to model (repeat for others)
 sty <- "Recurve"           # change to "Barebow", "Compound", etc.
 d_sub <- d |> filter(bowstyle == sty)

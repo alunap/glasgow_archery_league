@@ -31,8 +31,6 @@ load_current_archers <- function(conn) {
   return(archers)
 }
 
-
-
 # Extract monthly data from spreadsheet and save to PostgreQSL
 #read_excel <- function(fname) {
 #  latest <- read.xlsx(fname, sheetName = "Results", startRow = 3, endRow = 43, colIndex = c(2, 3, 4, 5, 6, 7, 8, 9))
@@ -70,7 +68,7 @@ these_archers <- results %>%
                   mutate(club = clubs[club])
 
 current_archers <- load_current_archers(conn)
-new_archers <- anti_join(these_archers, current_archers, by="archer")
+new_archers <- anti_join(these_archers, current_archers, by=c("archer", "club","bowstyle"))
 
 # After checking the above, standardise and save new archers to the postgres table
 # Why still use PostgreSQL? Because I can't easily visually edit a DuckDB file (eg to add new venues, which don't appear in the spreadsheets)
@@ -90,7 +88,7 @@ add_new_scores <- function(results, con) {
   # Get the archer ids for the new scores
   current_archers <- load_current_archers(conn)
   these_scores <- results %>%
-    left_join(current_archers, by="archer") %>%
+    left_join(current_archers, by=c("archer", "club", "bowstyle")) %>%
     select(archer_id = id, score) %>%
     mutate(event_id = 11) # change this to the correct event id for the new scores
   

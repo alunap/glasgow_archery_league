@@ -83,7 +83,7 @@ knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ### Gents Longbow
 
 ```{r}
-gent_l <- score_table('Longbow', 'Gents', scores)
+gent_l <- score_table('Traditional', 'Gents', scores)
 knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 

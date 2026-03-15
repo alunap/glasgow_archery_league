@@ -62,11 +62,12 @@ score_table <- function(bow, s, thescores) {
 }
 
 # Load scores for each club for the given date
-club_scores <- function(theclub, thescores)
+club_scores <- function(theclub, thescores) {
   tbl <- thescores |> 
   filter(club == theclub) |> 
   arrange_at(c("score", "golds"), desc) |> 
   select(c("archer", "bowstyle", "score", "hits", "golds"))
+}
 
 team_results <- function(thescores) {
   thescores |> 
@@ -77,3 +78,19 @@ team_results <- function(thescores) {
     summarise(across(score:golds, sum)) |> 
     arrange_at(c("score", "golds"), desc)
 }
+
+load_best_scores <- function() {
+  load_all_archer_scores() |>
+    select(c("archer", "bowstyle", "score")) |>
+    filter(score > 0) |>
+    arrange_at(c("score", "archer"), desc) |>
+    group_by(archer) |>
+    slice_head(n=1)
+}
+
+load_badges <- function() {
+  conduck <- DBI::dbConnect(duckdb::duckdb(), dbdir = here("data", "data.db"))
+  badges <- tbl(conduck, "badges") |> as_tibble()
+  DBI::dbDisconnect(conduck)
+  return(badges)
+}    

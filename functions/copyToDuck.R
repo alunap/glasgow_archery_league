@@ -24,6 +24,7 @@ venues <- dbReadTable(conn, "venues")
 archers <- dbReadTable(conn, "archers")
 events <- dbReadTable(conn, "events")
 event_scores <- dbReadTable(conn, "event_scores")
+badges <- dbReadTable(conn, "badges")
 DBI::dbDisconnect(conn)
 
 ## Write to DuckDB
@@ -32,6 +33,7 @@ dbWriteTable(conduck, "venues", venues, overwrite = TRUE)
 dbWriteTable(conduck, "archers", archers, overwrite = TRUE)
 dbWriteTable(conduck, "events", events, overwrite = TRUE)
 dbWriteTable(conduck, "event_scores", event_scores, overwrite = TRUE)
+dbWriteTable(conduck, "badges", badges, overwrite = TRUE)
 DBI::dbDisconnect(conduck)
 print("Data written to DuckDB")
 

@@ -44,7 +44,7 @@ knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds
 
 # Individual Scores - by Bowstyle
 
-Ladies Compound
+### Ladies Compound
 
 ```{r}
 
