@@ -48,8 +48,7 @@ clubs <- c("Glasgow Archers" = "Glasgow", "EK Archery Club"="East Kilbride", "St
 bowstyles <- c("Com"="Compound", "Rec"="Recurve", "BB"="Barebow", "LB"="Traditional")
 
 #### Read in the new data ####
-# **** change the next line to whatever is the next file to load ****
-file_name <- here("data", "2025-6", "Glasgow League Mar 2026.ods")
+file_name <-  file.choose()
 
 if(endsWith(file_name, "ods")) {
     results <-  read_ods(file_name, sheet = "Results",  range = "B3:I41")
