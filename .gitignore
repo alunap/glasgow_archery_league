@@ -1,19 +1,37 @@
-# R defaults (from GitHub R.gitignore)
-.Rhistory
-.RData
-.Ruserdata
-.Rproj.user/
-*.Rcheck/
+# Large or sensitive data (especially relevant for school/safeguarding data)
+*.parquet
+*.rds
+*.RData
 
-# Quarto
-/.quarto/
-/_site/
-/_freeze/
-
-# Project-specific (add your own)
-data/
-outputs/
+# Outputs (render results)
 *.html
 *.pdf
-.Renviron
+*.docx
+_site/
+docs/                  # common for rendered sites
+_freeze/
+.ipynb_checkpoints/
+
+# Temporary and log files
+*.log
+.Rhistory
+.RData
+.Rproj.user/
+.quarto/
+.quartoignore          # if you create one
+
+# OS and editor junk
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Credentials / secrets (critical for projects pulling from Azure/AWS)
+*.env
+.Renviron
+credentials.R
+config.yml             # if it contains keys
+
+# Large build artifacts
+*.tar.gz
+*.zip
