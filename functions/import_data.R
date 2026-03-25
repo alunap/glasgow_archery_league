@@ -24,7 +24,7 @@ connect <- function() {
                         host = "localhost",
                         port = 5432,
                         user = "postgres",
-                        password = "strawberrySundae"
+                        password = Sys.getenv("PG_PASSWORD")
       )
   })
 }
