@@ -7,7 +7,7 @@
 *.html
 *.pdf
 *.docx
-_site/
+_site/*
 docs/                  # common for rendered sites
 _freeze/
 .ipynb_checkpoints/
@@ -15,9 +15,11 @@ _freeze/
 # Temporary and log files
 *.log
 .Rhistory
+.Rap.history
+.Rprofile
 .RData
 .Rproj.user/
-.quarto/
+.quarto/*
 .quartoignore          # if you create one
 
 # OS and editor junk
@@ -36,3 +38,4 @@ config.yml             # if it contains keys
 *.tar.gz
 *.zip
 /.quarto/
+.Rapp.history

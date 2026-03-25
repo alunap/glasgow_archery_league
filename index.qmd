@@ -56,7 +56,7 @@ See the Events tab for the scores for events that took place at each stage.
 | 5th      | Linwood       | 1   | 0   | 2   | 1   | 1   | 0   | 5     |
 | 6th      | Orion's       | 0   | 1   | 0   | 0   | 0   | 0   | 1     |
 | 7th      | Giffnock      | \-  | \-  | \-  | \-  | \-  | 1   | 1     |
-| 8th      | UWS           | 0   | 0   | 0   | 0   | 0   | 0   | 0     |
+| 8th      | UWS           | \-  | \-  | 0   | 0   | 0   | \-  | 0     |
 
 ```{r}
 all_archers <- load_all_archer_scores()
