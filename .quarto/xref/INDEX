@@ -31,5 +31,47 @@
   },
   "Events/coatbridge_mar22.qmd": {
     "coatbridge_mar22.html": "89cb87c4"
+  },
+  "Events/2025-6/events.qmd": {
+    "events.html": "b2ca8ab0"
+  },
+  "Events/2024-5/events.qmd": {
+    "events.html": "2975ac80"
+  },
+  "Events/2024-5/coatbridge_dec.qmd": {
+    "coatbridge_dec.html": "3891c6e0"
+  },
+  "Events/2024-5/coatbridge_mar.qmd": {
+    "coatbridge_mar.html": "9d78bfd9"
+  },
+  "Events/2024-5/coatbridge_mar22.qmd": {
+    "coatbridge_mar22.html": "627aa6fe"
+  },
+  "Events/2024-5/east_kilbride_jan.qmd": {
+    "east_kilbride_jan.html": "335e8691"
+  },
+  "Events/2024-5/coatbridge_nov.qmd": {
+    "coatbridge_nov.html": "c60531e9"
+  },
+  "Events/2024-5/east_kilbride_oct.qmd": {
+    "east_kilbride_oct.html": "b7d51c8e"
+  },
+  "Events/2025-6/nov25.qmd": {
+    "nov25.html": "e651e336"
+  },
+  "Events/2025-6/oct25.qmd": {
+    "oct25.html": "3fd01426"
+  },
+  "Events/2025-6/mar26.qmd": {
+    "mar26.html": "6574ac29"
+  },
+  "Events/2025-6/jan26.qmd": {
+    "jan26.html": "c2708be0"
+  },
+  "Events/2025-6/feb26.qmd": {
+    "feb26.html": "73a188c2"
+  },
+  "Events/2025-6/dec25.qmd": {
+    "dec25.html": "cef541ad"
   }
 }

@@ -1,11 +1,19 @@
-.Rproj.user
+# R defaults (from GitHub R.gitignore)
 .Rhistory
 .RData
 .Ruserdata
-_publish.yml
-.quarto/
-_site/
-.quarto/
-logs/runs
-logs/*.log
+.Rproj.user/
+*.Rcheck/
+
+# Quarto
 /.quarto/
+/_site/
+/_freeze/
+
+# Project-specific (add your own)
+data/
+outputs/
+*.html
+*.pdf
+.Renviron
+.DS_Store
