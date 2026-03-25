@@ -151,10 +151,10 @@ orion <- club_scores("Orion's", scores)
 knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
 
-## UWS
+## Giffnock
 
 ```{r}
-uws <- club_scores("UWS", scores)
+uws <- club_scores("Giffnock", scores)
 if (nrow(uws) > 0) {
   knitr::kable(uws, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 }
