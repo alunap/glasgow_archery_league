@@ -29,21 +29,14 @@ See the Events tab for the scores for events that took place at each stage.
 
 ## 2025/6 Schedule
 
-+------------+---------------+---------------+----------------------+----------------------+
-| Stage      | Date          | Time          | Location             | What3words           |
-+============+===============+===============+======================+======================+
-| 1          | 5th October   | 9AM - 1PM     | Eastwood High School | fluid.trip.tanks     |
-+------------+---------------+---------------+----------------------+----------------------+
-| 2          | 1st November  | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
-+------------+---------------+---------------+----------------------+----------------------+
-| 3          | 13th December | 10AM - 2PM    | ON-X                 | lure.shredder.tribes |
-+------------+---------------+---------------+----------------------+----------------------+
-| 4          | 17th January. | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
-+------------+---------------+---------------+----------------------+----------------------+
-| 5          | 21st February | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
-+------------+---------------+---------------+----------------------+----------------------+
-| 6          | 21st March    | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
-+------------+---------------+---------------+----------------------+----------------------+
+| Stage | Date          | Time          | Location             | What3words           |
+|-------|---------------|---------------|----------------------|----------------------|
+| 1     | 5th October   | 9AM - 1PM     | Eastwood High School | fluid.trip.tanks     |
+| 2     | 1st November  | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
+| 3     | 13th December | 10AM - 2PM    | ON-X                 | lure.shredder.tribes |
+| 4     | 17th January. | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
+| 5     | 21st February | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
+| 6     | 21st March    | 12PM - 4:30PM | Time Capsule         | hoping.gloves.shins  |
 
 ## Results
 

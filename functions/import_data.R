@@ -1,5 +1,10 @@
+###########################################################################################################################
 ### Functions for loading new data each month. We use a local PostgreSQL database, but export to duckdb for production. ###
-
+### Before running make sure you have changed these lines as appropriate:                                               ###
+### file_name                                                                                                           ###
+### event id in the add_new_scores function                                                                             ###
+### The lists of club names and bowstyle names, as they can vary month-to-month in the spreadsheets.                    ###
+###########################################################################################################################
 library(RPostgres)
 library(DBI)
 library(tidyverse)
@@ -31,41 +36,29 @@ load_current_archers <- function(conn) {
   return(archers)
 }
 
-read_openlibre <- function(fname) {
-  latest <- read_ods(fname, sheet = "Results",  range = "B3:I41")
-  newnames <- c("target", "archer", "club", "sex", "bowstyle", "score", "hits", "golds")
-  names(latest) <- newnames
-  latest <- subset(latest, select = -target)
-  return(latest)
-}
-
-# Extract monthly data from spreadsheet and save to PostgreQSL
-read_excel <- function(fname) {
-  latest <- read.xlsx(fname, sheetName = "Results", startRow = 3, endRow = 43, colIndex = c(2, 3, 4, 5, 6, 7, 8, 9))
-  newnames <- c("target", "archer", "club", "sex", "bowstyle", "score", "hits", "golds")
-  names(latest) <- newnames
-  latest <- subset(latest, select = -target)
-  return(latest)
-}
-
-
 # Load data and check. 
 # NOTE: don't assume the new data is fine as-is. Check the original excel file, check the new_archers tibble. Since the data is typed in
 # it is easy to get spelling mistakes or variants of previous codes for sex, misspelled archer and club names, etc.
 # Nov 2025 changed Antonios -> Antonis, Livingstone -> Livingston, Samual -> Sam
-
+# NB: the next two vectors are used to standardise the club and bowstyle names in the new data, 
+# so they need to be updated if there are any new clubs or bowstyles in the new data. 
+# The keys are the values in the spreadsheet, and the values are the standardised names that match those in the database.
+# **** Different people tend to use different names in the spreadsheets, so check ****
 clubs <- c("Glasgow Archers" = "Glasgow", "EK Archery Club"="East Kilbride", "Strathclyde AC"="Strathclyde", "Monklands AC"="Monklands", "Linwood AC"="Linwood", "Orion's Archers"="Orion's", "UWS Archery Club"="UWS", "Giffnock AC" = "Giffnock")
 bowstyles <- c("Com"="Compound", "Rec"="Recurve", "BB"="Barebow", "LB"="Traditional")
 
-
-# change the next line to whatever is the next file to load
+#### Read in the new data ####
+# **** change the next line to whatever is the next file to load ****
 file_name <- here("data", "2025-6", "Glasgow League Mar 2026.ods")
 
-results <- if(endsWith(file_name, "ods")) {
-  read_openlibre(file_name)
+if(endsWith(file_name, "ods")) {
+    results <-  read_ods(file_name, sheet = "Results",  range = "B3:I41")
   } else { 
-    read_excel(file_name)
+    results <- read.xlsx(file_name, sheetName = "Results", startRow = 3, endRow = 43, colIndex = c(2, 3, 4, 5, 6, 7, 8, 9))
   }
+newnames <- c("target", "archer", "club", "sex", "bowstyle", "score", "hits", "golds")
+names(results) <- newnames
+results <- subset(results, select = -target)
               
 these_archers <- results %>%
                   select(c("archer", "club", "bowstyle", "sex")) %>%
@@ -75,6 +68,7 @@ these_archers <- results %>%
                   mutate(bowstyle = bowstyles[bowstyle]) %>%
                   mutate(club = clubs[club])
 
+# Find any archers in the file that do not exist in the database
 current_archers <- load_current_archers(conn) |> as_tibble()
 new_archers <- anti_join(these_archers, current_archers, by=c("archer", "club", "bowstyle"))
 
@@ -90,6 +84,7 @@ add_new_archers <- function(new_archers, current_archers, con){
 
 add_new_archers(new_archers, current_archers, conn)
 
+# Add the new scores to the event_scores table, with the correct event id.
 add_new_scores <- function(results, con, event) {
   # Get the archer ids for the new scores
   current_archers <- load_current_archers(conn)
@@ -106,6 +101,6 @@ add_new_scores <- function(results, con, event) {
   dbWriteTable(con, "event_scores", these_scores, append = TRUE)
 }
 
-add_new_scores(results, conn, 12) # change the event id to the correct one for the new scores
+add_new_scores(results, conn, 12) # ****change the event id to the correct one for the new scores ****
 
 DBI::dbDisconnect(conn)

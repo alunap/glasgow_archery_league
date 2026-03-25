@@ -19,19 +19,22 @@ This is a Quarto website project that tracks results and statistics for the Glas
 ### Development Workflow
 
 ### \# Render the entire website
+
 quarto render
 
 # Preview the website locally (with live reload)
+
 quarto preview
 
 # Render specific page
-quarto render index.qmd
-quarto render Events/events.qmd
+
+quarto render index.qmd quarto render Events/events.qmd
 
 # Render and preview a single document
+
 quarto preview Events/east_kilbride_oct.qmd
 
- {.bash}
+{.bash}
 
 ### R Environment Management
 
@@ -68,8 +71,8 @@ No direct database commands needed - all interactions are through R functions.
 
 Key functions that power the site:
 
--   `load_archers(theDate)` - Load archer scores for specific event date
--   `load_all_archers()` - Load all archer data across all events
+-   `load_archer_scores(theDate)` - Load archer scores for specific event date
+-   `load_all_archer_scores()` - Load all archer data across all events
 -   `venue(theDate)` - Get venue information for event
 -   `score_table(bow, sex, scores)` - Filter and format scores by bow style and gender
 -   `club_scores(club, scores)` - Get all scores for a specific club
@@ -77,13 +80,13 @@ Key functions that power the site:
 
 ### Database Schema
 
-The DuckDB database contains linked tables: - `events` - Individual archer performances with foreign keys to archers and venues - `archers` - Archer details (name, club, bow style, gender) - `venues` - Tournament locations with geographical data
+The DuckDB database contains linked tables: - `events` - the date and round of each event with link to venue - `archers` - Archer details (name, club, bow style, gender) - `venues` - Tournament locations with geographical data - `event_scores` - the score for each archer at each event with links to archer and event tables.
 
 ## Development Patterns
 
 ### Adding New Events
 
-1.  Add event data to the database (typically done externally)
+1.  Add event data to the database by running import_data.R followed by copyToDuck.R
 2.  Create new event detail page in `Events/` folder (copy existing template)
 3.  Update `Events/events.qmd` to include new event section
 4.  Update main league table in `index.qmd` if season complete
@@ -109,6 +112,8 @@ The site automatically generates: - Team rankings based on top 4 scores per club
 3.  Verify Quarto is installed: `quarto --version`
 4.  Preview site: `quarto preview`
 5.  The site will be available at `http://localhost:XXXX` with live reload
+6.  Upload site: quarto publish quarto-pub
+7.  The site will be available at <https://westofscotlandarchery.quarto.pub/glasgow-archery-league/>
 
 ## Dependencies
 
