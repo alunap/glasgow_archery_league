@@ -35,3 +35,4 @@ config.yml             # if it contains keys
 # Large build artifacts
 *.tar.gz
 *.zip
+/.quarto/

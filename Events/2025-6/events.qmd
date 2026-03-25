@@ -126,26 +126,6 @@ if (nrow(scores) > 0) {
 
 ## Progress charts
 
-```{r}
-all_archers <- load_all_archer_scores()
-scores <- filter(all_archers, score > 0, between(event_date, as.Date('2025-10-01'), as.Date('2026-03-30')))
-```
-
-As events take place the following charts will be updated.
-
-### Current Club Ranking
-
-### Total Club scores for the season
-
-Here are the total scores, but it is the positions in each stage that count. East Kilbride has the highest total, yet never comes higher than 3rd, who does this add up? The club scores in each tournament are for the 4 best scores (regardless of bow style). East Kilbride has more archers shooting to add to the total, but most of those don't count. If you check the box plot below, you can also see that the average score for East Kilbride is lower than Glasgow and Strathclyde, but again it isn't the average but the top four that are counted.
-
-```{r}
-club_scores <- scores |> 
-  count(club, wt = score) |>
-  arrange(desc(n))
-knitr::kable(club_scores, col.names = c("Club", "Score"))
-```
-
 ### How do clubs compare in the range of scores?
 
 It can be interesting to see how variable the archers in a particular club are, so these two plots show everyone's scores from all of the events so far. We can also see which clubs seem to favour barebow, compound, or recurve.

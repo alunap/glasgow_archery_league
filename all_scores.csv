@@ -3,372 +3,218 @@ event_date,score,hits,golds,archer,bowstyle,club,sex,location
 2025-12-13,163,34,0,Adam Donnichie,Barebow,UWS,Gents,ON-X
 2026-02-21,380,NA,NA,Aidan Dowie,Barebow,Strathclyde,Gents,The Time Capsule
 2025-10-05,436,60,4,Aidan Dowie,Barebow,Strathclyde,Gents,Eastwood High School
-2024-12-21,459,0,0,Ailsa Macleod,Recurve,East Kilbride,Ladies,The Time Capsule
-2024-10-20,442,60,6,Ailsa Macleod,Recurve,East Kilbride,Ladies,Eastwood High School
-2025-03-01,452,60,9,Ailsa Macleod,Recurve,East Kilbride,Ladies,The Time Capsule
-2025-01-12,463,60,9,Ailsa Macleod,Recurve,East Kilbride,Ladies,Eastwood High School
-2025-03-22,490,60,9,Aisha Malik,Recurve,Monklands,Ladies,The Time Capsule
 2025-11-01,392,57,3,Aisha Malik,Recurve,Monklands,Ladies,The Time Capsule
-2024-10-20,462,60,7,Aisha Malik,Recurve,Monklands,Ladies,Eastwood High School
 2025-10-05,384,60,1,Alex Blake,Barebow,Strathclyde,Ladies,Eastwood High School
 2026-02-21,486,NA,NA,Alexander Husbands,Recurve,East Kilbride,Gents,The Time Capsule
+2026-03-21,491,60,10,Alexander Husbands,Recurve,East Kilbride,Gents,The Time Capsule
 2025-12-13,277,51,1,Alexandra Swain,Barebow,Strathclyde,Ladies,ON-X
 2026-02-21,430,NA,NA,Alisa Kravchenko,Barebow,Strathclyde,Ladies,The Time Capsule
-2024-10-20,547,60,20,Alison Findlay,Recurve,East Kilbride,Ladies,Eastwood High School
-2025-03-01,481,60,11,Alison Ross,Recurve,East Kilbride,Ladies,The Time Capsule
-2025-03-22,446,60,4,Alison Ross,Recurve,East Kilbride,Ladies,The Time Capsule
+2026-03-21,329,55,4,Alison Clark,Traditional,Giffnock,Ladies,The Time Capsule
 2025-10-05,489,60,6,Alun ap Rhisiart,Recurve,Orion's,Gents,Eastwood High School
-2024-11-24,480,60,8,Alun ap Rhisiart,Recurve,Orion's,Gents,The Time Capsule
-2025-03-01,476,60,15,Alun ap Rhisiart,Recurve,Orion's,Gents,The Time Capsule
-2024-12-21,493,0,0,Alun ap Rhisiart,Recurve,Orion's,Gents,The Time Capsule
-2024-10-20,478,60,6,Alun ap Rhisiart,Recurve,Orion's,Gents,Eastwood High School
-2025-03-01,325,57,2,Andrew Rodgers,Recurve,Orion's,Gents,The Time Capsule
-2025-10-05,519,60,12,Andy Findlay,Recurve,East Kilbride,Gents,Eastwood High School
-2024-11-24,517,60,13,Andy Findlay,Recurve,East Kilbride,Gents,The Time Capsule
-2025-01-12,529,60,14,Andy Findlay,Recurve,East Kilbride,Gents,Eastwood High School
-2025-03-22,455,60,4,Andy Findlay,Recurve,East Kilbride,Gents,The Time Capsule
-2024-10-20,526,60,17,Andy Findlay,Recurve,East Kilbride,Gents,Eastwood High School
 2025-12-13,526,60,18,Andy Findlay,Recurve,East Kilbride,Gents,ON-X
 2026-01-17,458,60,6,Andy Findlay,Recurve,East Kilbride,Gents,The Time Capsule
 2025-11-01,442,60,7,Andy Findlay,Recurve,East Kilbride,Gents,The Time Capsule
-2024-10-20,0,0,0,Antonis Katris,Recurve,Strathclyde,Gents,Eastwood High School
-2025-01-12,564,60,30,Antonis Katris,Recurve,Strathclyde,Gents,Eastwood High School
+2025-10-05,519,60,12,Andy Findlay,Recurve,East Kilbride,Gents,Eastwood High School
+2026-03-21,544,60,23,Antonis Katris,Recurve,Strathclyde,Gents,The Time Capsule
 2026-02-21,543,NA,NA,Antonis Katris,Recurve,Strathclyde,Gents,The Time Capsule
-2024-11-24,559,60,29,Antonis Katris,Recurve,Strathclyde,Gents,The Time Capsule
-2025-03-01,557,60,28,Antonis Katris,Recurve,Strathclyde,Gents,The Time Capsule
-2025-03-22,546,60,22,Antonis Katris,Recurve,Strathclyde,Gents,The Time Capsule
 2025-11-01,545,60,27,Antonis Katris,Recurve,Strathclyde,Gents,The Time Capsule
 2025-10-05,549,60,21,Antonis Katris,Recurve,Strathclyde,Gents,Eastwood High School
-2024-12-21,560,0,0,Antonis Katris,Recurve,Strathclyde,Gents,The Time Capsule
-2025-03-01,519,59,11,Ashley Chen,Recurve,Glasgow,Ladies,The Time Capsule
-2024-11-24,527,60,16,Ashley Chen,Recurve,Glasgow,Ladies,The Time Capsule
 2026-02-21,553,NA,NA,Ben Dolson,Compound,Monklands,Gents,The Time Capsule
-2025-03-01,551,60,18,Ben Dolson,Compound,Monklands,Gents,The Time Capsule
-2024-11-24,551,60,15,Ben Dolson,Compound,Monklands,Gents,The Time Capsule
-2025-01-12,546,60,20,Benji Hamer,Recurve,Strathclyde,Gents,Eastwood High School
-2025-03-01,554,60,24,Benji Hamer,Recurve,Strathclyde,Gents,The Time Capsule
-2024-10-20,544,60,22,Benji Hamer,Recurve,Strathclyde,Gents,Eastwood High School
-2026-01-17,546,60,17,Benji Hamer,Recurve,Strathclyde,Gents,The Time Capsule
-2024-11-24,568,60,32,Benji Hamer,Recurve,Strathclyde,Gents,The Time Capsule
-2025-10-05,545,60,22,Benji Hamer,Recurve,Strathclyde,Gents,Eastwood High School
-2025-03-22,561,60,29,Benji Hamer,Recurve,Strathclyde,Gents,The Time Capsule
 2026-02-21,558,NA,NA,Benji Hamer,Recurve,Strathclyde,Gents,The Time Capsule
+2026-01-17,546,60,17,Benji Hamer,Recurve,Strathclyde,Gents,The Time Capsule
+2026-03-21,572,60,30,Benji Hamer,Recurve,Strathclyde,Gents,The Time Capsule
+2025-10-05,545,60,22,Benji Hamer,Recurve,Strathclyde,Gents,Eastwood High School
 2025-10-05,496,60,8,Bernard Healy,Barebow,Linwood,Gents,Eastwood High School
-2025-03-22,438,60,2,Calum Donald,Recurve,Monklands,Gents,The Time Capsule
-2024-12-21,425,0,0,Calum Donald,Recurve,Monklands,Gents,The Time Capsule
-2024-10-20,456,60,10,Calum Donald,Recurve,Monklands,Gents,Eastwood High School
 2026-02-21,515,NA,NA,Calum Findlay,Recurve,East Kilbride,Gents,The Time Capsule
+2026-03-21,521,60,17,Calum Findlay,Recurve,East Kilbride,Gents,The Time Capsule
 2025-11-01,536,60,23,Calum Findlay,Recurve,East Kilbride,Gents,The Time Capsule
 2026-01-17,509,60,16,Calum Findlay,Recurve,East Kilbride,Gents,The Time Capsule
-2025-01-12,479,60,13,Cameron Ross,Recurve,East Kilbride,Gents,Eastwood High School
 2026-02-21,319,NA,NA,Cassie Miller,Barebow,UWS,Ladies,The Time Capsule
 2025-12-13,366,57,3,Cassie Miller,Barebow,UWS,Ladies,ON-X
-2024-11-24,483,56,14,Catherine Coddington,Recurve,Glasgow,Ladies,The Time Capsule
-2025-10-05,560,60,31,Catherine Coddington,Recurve,Monklands,Ladies,Eastwood High School
+2026-02-21,538,NA,NA,Catherine Coddington,Recurve,Glasgow,Ladies,The Time Capsule
 2026-02-21,538,NA,NA,Catherine Coddington,Recurve,Monklands,Ladies,The Time Capsule
 2025-11-01,529,60,18,Catherine Coddington,Recurve,Monklands,Ladies,The Time Capsule
-2025-01-12,535,59,19,Catherine Coddington,Recurve,Glasgow,Ladies,Eastwood High School
-2026-02-21,538,NA,NA,Catherine Coddington,Recurve,Glasgow,Ladies,The Time Capsule
-2024-10-20,549,60,27,Catherine Coddington,Recurve,Glasgow,Ladies,Eastwood High School
-2025-03-01,550,60,27,Catherine Coddington,Recurve,Glasgow,Ladies,The Time Capsule
-2025-03-01,357,58,2,Chip Charters,Barebow,Orion's,Gents,The Time Capsule
-2024-12-21,314,0,0,Chip Charters,Barebow,Orion's,Gents,The Time Capsule
+2025-10-05,560,60,31,Catherine Coddington,Recurve,Monklands,Ladies,Eastwood High School
 2025-11-01,329,50,3,Chip Charters,Barebow,Orion's,Gents,The Time Capsule
-2025-03-01,448,60,8,Chris Blair,Barebow,Glasgow,Gents,The Time Capsule
+2026-03-21,464,60,7,Chris Blair,Barebow,Glasgow,Gents,The Time Capsule
 2025-12-13,479,60,4,Chris Blair,Barebow,Glasgow,Gents,ON-X
-2025-03-22,470,60,2,Chris Blair,Barebow,Glasgow,Gents,The Time Capsule
+2026-02-21,451,NA,NA,Chris Blair,Barebow,Glasgow,Gents,The Time Capsule
 2026-01-17,454,59,7,Chris Blair,Barebow,Glasgow,Gents,The Time Capsule
 2025-11-01,491,60,11,Chris Blair,Barebow,Glasgow,Gents,The Time Capsule
 2025-10-05,437,60,2,Chris Blair,Barebow,Glasgow,Gents,Eastwood High School
-2024-12-21,457,0,0,Chris Blair,Barebow,Glasgow,Gents,The Time Capsule
-2025-01-12,464,60,9,Chris Blair,Barebow,Glasgow,Gents,Eastwood High School
-2026-02-21,451,NA,NA,Chris Blair,Barebow,Glasgow,Gents,The Time Capsule
-2024-12-21,547,0,0,Chris Murray,Compound,Monklands,Gents,The Time Capsule
 2025-10-05,547,60,15,Chris Murray,Compound,Monklands,Gents,Eastwood High School
-2025-03-01,553,60,15,Chris Murray,Compound,Monklands,Gents,The Time Capsule
 2025-12-13,560,60,22,Chris Murray,Compound,Monklands,Gents,ON-X
-2026-02-21,557,NA,NA,Chris Murray,Compound,Monklands,Gents,The Time Capsule
 2026-01-17,553,60,16,Chris Murray,Compound,Monklands,Gents,The Time Capsule
-2025-01-12,556,60,18,Chris Murray,Compound,Monklands,Gents,Eastwood High School
-2024-10-20,557,60,20,Chris Murray,Compound,Monklands,Gents,Eastwood High School
-2024-11-24,557,60,28,Chris Murray,Compound,Monklands,Gents,The Time Capsule
+2026-02-21,557,NA,NA,Chris Murray,Compound,Monklands,Gents,The Time Capsule
 2025-11-01,497,60,9,Chris Viney,Recurve,Glasgow,Gents,The Time Capsule
-2024-10-20,430,60,5,David Cawdron,Longbow,East Kilbride,Gents,Eastwood High School
-2025-10-05,492,60,10,David Gillespie,Barebow,East Kilbride,Gents,Eastwood High School
+2026-03-21,490,60,8,David Gillespie,Barebow,Giffnock,Gents,The Time Capsule
 2026-01-17,497,60,13,David Gillespie,Barebow,East Kilbride,Gents,The Time Capsule
-2024-12-21,479,0,0,David Gillespie,Barebow,East Kilbride,Gents,The Time Capsule
-2025-03-22,90,20,0,David Lyttle,Barebow,Monklands,Gents,The Time Capsule
+2025-10-05,492,60,10,David Gillespie,Barebow,East Kilbride,Gents,Eastwood High School
 2025-10-05,470,3,5,David MacLachlan,Recurve,Orion's,Gents,Eastwood High School
+2026-03-21,474,58,6,David MacLachlan,Recurve,Orion's,Gents,The Time Capsule
 2025-11-01,491,60,10,David MacLachlan,Recurve,Orion's,Gents,The Time Capsule
 2026-02-21,485,NA,NA,David MacLachlan,Recurve,Orion's,Gents,The Time Capsule
 2025-12-13,496,60,9,David MacLachlan,Recurve,Orion's,Gents,ON-X
 2026-01-17,499,60,10,David MacLachlan,Recurve,Orion's,Gents,The Time Capsule
-2025-10-05,559,60,26,Donald Kennedy,Recurve,Linwood,Gents,Eastwood High School
 2026-02-21,562,NA,NA,Donald Kennedy,Recurve,Linwood,Gents,The Time Capsule
+2025-10-05,559,60,26,Donald Kennedy,Recurve,Linwood,Gents,Eastwood High School
 2026-01-17,573,60,37,Donald Kennedy,Recurve,Linwood,Gents,The Time Capsule
+2026-03-21,451,59,10,Donna Ferguson,Recurve,Monklands,Ladies,The Time Capsule
 2025-11-01,433,60,5,Donna Ferguson,Recurve,Monklands,Ladies,The Time Capsule
-2025-03-01,531,60,17,Donny Lin,Recurve,Strathclyde,Gents,The Time Capsule
-2025-01-12,502,60,10,Donny Lin,Recurve,Strathclyde,Gents,Eastwood High School
-2025-03-22,536,60,15,Donny Lin,Recurve,Strathclyde,Gents,The Time Capsule
 2025-11-01,533,60,23,Donny Lin,Recurve,Strathclyde,Gents,The Time Capsule
 2025-12-13,543,60,21,Donny Lin,Recurve,Strathclyde,Gents,ON-X
-2024-12-21,546,0,0,Donny Lin,Recurve,Strathclyde,Gents,The Time Capsule
-2024-10-20,526,60,16,Donny Lin,Recurve,Strathclyde,Gents,Eastwood High School
-2024-11-24,533,60,20,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
-2024-10-20,502,60,13,Duncan Malone,Recurve,Glasgow,Gents,Eastwood High School
-2025-11-01,537,60,18,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
-2024-12-21,499,0,0,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
-2025-03-01,483,60,9,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
-2026-01-17,542,60,21,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
-2026-02-21,538,NA,NA,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
 2025-10-05,484,60,5,Duncan Malone,Recurve,Glasgow,Gents,Eastwood High School
-2025-03-22,526,60,8,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
-2025-03-22,297,52,2,Edward Little,Barebow,Monklands,Gents,The Time Capsule
-2025-03-22,483,59,12,Elaine Zanjani,Recurve,Monklands,Ladies,The Time Capsule
-2025-03-01,515,60,13,Elaine Zanjani,Recurve,Monklands,Ladies,The Time Capsule
-2024-12-21,484,0,0,Elaine Zanjani,Recurve,Monklands,Ladies,The Time Capsule
-2025-11-01,478,60,7,Elaine Zanjani,Recurve,Monklands,Ladies,The Time Capsule
-2024-10-20,500,60,15,Elaine Zanjani,Recurve,Monklands,Ladies,Eastwood High School
+2026-02-21,538,NA,NA,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
+2025-11-01,537,60,18,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
+2026-03-21,531,60,19,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
+2026-01-17,542,60,21,Duncan Malone,Recurve,Glasgow,Gents,The Time Capsule
 2025-10-05,499,59,11,Elaine Zanjani,Recurve,Monklands,Ladies,Eastwood High School
 2026-01-17,454,60,8,Elaine Zanjani,Recurve,Monklands,Ladies,The Time Capsule
+2025-11-01,478,60,7,Elaine Zanjani,Recurve,Monklands,Ladies,The Time Capsule
 2026-01-17,171,34,0,Eli Cargill,Traditional,Orion's,Ladies,The Time Capsule
-2024-12-21,65,0,0,Eli Cargill,Traditional,Orion's,Ladies,The Time Capsule
 2026-02-21,107,NA,NA,Eli Cargill,Traditional,Orion's,Ladies,The Time Capsule
-2025-03-01,280,55,2,Eliot Dolson,Recurve,Monklands,Gents,The Time Capsule
-2024-11-24,491,60,6,Emily Tilbury,Recurve,East Kilbride,Ladies,The Time Capsule
-2025-01-12,504,60,9,Emily Tilbury,Recurve,East Kilbride,Ladies,Eastwood High School
-2024-12-21,516,0,0,Emily Tilbury,Recurve,East Kilbride,Ladies,The Time Capsule
-2025-10-05,531,60,22,Emily Tilbury,Recurve,East Kilbride,Ladies,Eastwood High School
 2025-12-13,292,36,3,Emily Tilbury,Recurve,East Kilbride,Ladies,ON-X
-2026-01-17,297,53,2,Emily Zenuwah,Barebow,UWS,Ladies,The Time Capsule
-2026-02-21,0,NA,NA,Emily Zenuwah,Barebow,UWS,Ladies,The Time Capsule
+2025-10-05,531,60,22,Emily Tilbury,Recurve,East Kilbride,Ladies,Eastwood High School
 2025-12-13,288,56,1,Emily Zenuwah,Barebow,UWS,Ladies,ON-X
-2025-01-12,502,60,10,Erin Ann Dobbin,Barebow,Linwood,Ladies,Eastwood High School
-2024-11-24,456,60,7,Erin Ann Dobbin,Barebow,Linwood,Ladies,The Time Capsule
-2025-10-05,526,60,11,Erin Ann Dobbin,Barebow,Linwood,Ladies,Eastwood High School
+2026-01-17,297,53,2,Emily Zenuwah,Barebow,UWS,Ladies,The Time Capsule
 2025-12-13,529,60,13,Erin Ann Dobbin,Barebow,Linwood,Ladies,ON-X
 2026-01-17,525,60,13,Erin Ann Dobbin,Barebow,Linwood,Ladies,The Time Capsule
-2024-10-20,531,60,14,Euan Ogilvie,Recurve,Glasgow,Gents,Eastwood High School
-2024-11-24,560,60,32,Euan Ogilvie,Recurve,Glasgow,Gents,The Time Capsule
-2024-12-21,548,0,0,Euan Ogilvie,Recurve,Glasgow,Gents,The Time Capsule
-2025-10-05,551,60,18,Euan Ogilvie,Recurve,Glasgow,Gents,Eastwood High School
+2025-10-05,526,60,11,Erin Ann Dobbin,Barebow,Linwood,Ladies,Eastwood High School
 2026-02-21,571,NA,NA,Euan Ogilvie,Recurve,Glasgow,Gents,The Time Capsule
-2026-01-17,553,60,23,Euan Ogilvie,Recurve,Glasgow,Gents,The Time Capsule
-2025-03-22,563,60,30,Euan Ogilvie,Recurve,Glasgow,Gents,The Time Capsule
-2025-03-01,548,60,23,Euan Ogilvie,Recurve,Glasgow,Gents,The Time Capsule
-2025-01-12,545,60,22,Euan Ogilvie,Recurve,Glasgow,Gents,Eastwood High School
 2025-12-13,567,60,34,Euan Ogilvie,Recurve,Glasgow,Gents,ON-X
-2024-12-21,277,0,0,Fahd Al-Kuhlani,Compound,Glasgow,Gents,The Time Capsule
-2024-12-21,497,0,0,Faisal Al-Khulani,Compound,Glasgow,Gents,The Time Capsule
-2026-01-17,547,60,15,Finlay Grant,Compound,Glasgow,Gents,The Time Capsule
-2026-02-21,559,NA,NA,Finlay Grant,Compound,Glasgow,Gents,The Time Capsule
+2025-10-05,551,60,18,Euan Ogilvie,Recurve,Glasgow,Gents,Eastwood High School
+2026-01-17,553,60,23,Euan Ogilvie,Recurve,Glasgow,Gents,The Time Capsule
+2026-03-21,559,60,27,Euan Ogilvie,Recurve,Glasgow,Gents,The Time Capsule
 2025-10-05,539,60,14,Finlay Grant,Compound,Glasgow,Gents,Eastwood High School
+2026-03-21,550,60,17,Finlay Grant,Compound,Glasgow,Gents,The Time Capsule
+2026-02-21,559,NA,NA,Finlay Grant,Compound,Glasgow,Gents,The Time Capsule
 2025-12-13,555,60,20,Finlay Grant,Compound,Glasgow,Gents,ON-X
-2025-01-12,565,60,28,Frank Hynds,Recurve,Linwood,Gents,Eastwood High School
-2024-11-24,570,60,34,Frank Hynds,Recurve,Linwood,Gents,The Time Capsule
-2025-03-22,573,60,35,Frank Hynds,Recurve,Linwood,Gents,The Time Capsule
+2026-01-17,547,60,15,Finlay Grant,Compound,Glasgow,Gents,The Time Capsule
+2026-03-21,296,54,1,Fraser Macfarlane,Recurve,Monklands,Gents,The Time Capsule
 2025-12-13,494,60,11,Freya Rennie,Barebow,UWS,Ladies,ON-X
-2024-12-21,299,0,0,Furas Al-Kuhlani,Recurve,Glasgow,Gents,The Time Capsule
-2025-10-05,376,60,0,Gareth Clayton,Recurve,Orion's,Gents,Eastwood High School
-2026-02-21,445,NA,NA,Gareth Clayton,Recurve,Orion's,Gents,The Time Capsule
 2025-12-13,480,60,7,Gareth Clayton,Recurve,Orion's,Gents,ON-X
+2026-02-21,445,NA,NA,Gareth Clayton,Recurve,Orion's,Gents,The Time Capsule
 2026-01-17,484,60,9,Gareth Clayton,Recurve,Orion's,Gents,The Time Capsule
-2025-03-22,537,60,19,George Davidson,Recurve,Glasgow,Gents,The Time Capsule
-2024-10-20,544,60,20,George Davidson,Recurve,Glasgow,Gents,Eastwood High School
-2024-12-21,549,0,0,George Davidson,Recurve,Glasgow,Gents,The Time Capsule
-2025-01-12,540,60,22,George Davidson,Recurve,Glasgow,Gents,Eastwood High School
-2025-03-01,542,60,22,George Davidson,Recurve,Glasgow,Gents,The Time Capsule
-2024-11-24,545,60,21,George Davidson,Recurve,Glasgow,Gents,The Time Capsule
-2025-12-13,534,60,17,George Davidson,Recurve,Glasgow,Gents,ON-X
+2025-10-05,376,60,0,Gareth Clayton,Recurve,Orion's,Gents,Eastwood High School
+2026-03-21,475,60,4,Gareth Clayton,Recurve,Orion's,Gents,The Time Capsule
 2025-10-05,527,60,17,George Davidson,Recurve,Glasgow,Gents,Eastwood High School
-2024-11-24,492,60,11,Gerry Watson,Recurve,Monklands,Gents,The Time Capsule
+2026-03-21,539,60,19,George Davidson,Recurve,Glasgow,Gents,The Time Capsule
+2025-12-13,534,60,17,George Davidson,Recurve,Glasgow,Gents,ON-X
 2026-01-17,450,60,4,Gerry Watson,Recurve,Monklands,Gents,The Time Capsule
 2025-11-01,449,60,5,Gillian Wright,Barebow,Monklands,Ladies,The Time Capsule
 2026-01-17,412,59,3,Gillian Wright,Barebow,Monklands,Ladies,The Time Capsule
-2025-03-01,472,60,5,Grace Clark,Recurve,Monklands,Ladies,The Time Capsule
-2026-01-17,562,60,29,Grant McLellan,Recurve,Strathclyde,Gents,The Time Capsule
-2025-03-22,564,60,30,Grant McLellan,Recurve,Strathclyde,Gents,The Time Capsule
 2025-11-01,580,60,41,Grant McLellan,Recurve,Strathclyde,Gents,The Time Capsule
 2025-10-05,570,60,33,Grant McLellan,Recurve,Strathclyde,Gents,Eastwood High School
-2025-03-01,572,60,35,Grant McLellan,Recurve,Strathclyde,Gents,The Time Capsule
-2024-12-21,562,0,0,Grant McLellan,Recurve,Strathclyde,Gents,The Time Capsule
+2026-01-17,562,60,29,Grant McLellan,Recurve,Strathclyde,Gents,The Time Capsule
 2025-12-13,576,60,36,Grant McLellan,Recurve,Strathclyde,Gents,ON-X
+2026-03-21,585,60,45,Grant McLellan,Recurve,Strathclyde,Gents,The Time Capsule
 2026-01-17,223,50,0,Hamid Jamal,Barebow,Strathclyde,Gents,The Time Capsule
 2025-12-13,312,56,3,Hamid Jamal,Barebow,Strathclyde,Gents,ON-X
+2026-03-21,279,57,1,Helen Embleton,Barebow,Giffnock,Ladies,The Time Capsule
 2026-01-17,512,60,10,Henri Krishna,Recurve,Glasgow,Gents,The Time Capsule
-2025-03-22,523,60,17,Henri Krishna,Recurve,Glasgow,Gents,The Time Capsule
-2025-12-13,514,60,12,Henri Krishna,Recurve,Glasgow,Gents,ON-X
+2026-03-21,504,60,12,Henri Krishna,Recurve,Glasgow,Gents,The Time Capsule
 2025-11-01,539,60,18,Henri Krishna,Recurve,Glasgow,Gents,The Time Capsule
+2025-12-13,514,60,12,Henri Krishna,Recurve,Glasgow,Gents,ON-X
 2025-10-05,515,60,18,Henri Krishna,Recurve,Glasgow,Gents,Eastwood High School
 2026-02-21,522,NA,NA,Henri Krishna,Recurve,Glasgow,Gents,The Time Capsule
 2026-01-17,312,59,0,Ho Hin Lee,Recurve,Strathclyde,Gents,The Time Capsule
-2025-03-01,439,60,7,Hugh Livingston,Recurve,Monklands,Gents,The Time Capsule
-2025-03-22,464,60,7,Hugh Livingston,Recurve,Monklands,Gents,The Time Capsule
-2024-12-21,438,0,0,Hugh Livingston,Recurve,Monklands,Gents,The Time Capsule
 2025-11-01,463,60,6,Hugh Livingston,Recurve,Monklands,Gents,The Time Capsule
-2024-11-24,457,60,3,Hugh Livingston,Recurve,Monklands,Gents,The Time Capsule
 2026-01-17,456,60,6,Hugh Livingston,Recurve,Monklands,Gents,The Time Capsule
-2024-10-20,0,0,0,Iain Macmillan,Recurve,Monklands,Gents,Eastwood High School
 2025-10-05,544,60,20,Iain Macmillan,Recurve,Monklands,Gents,Eastwood High School
+2026-03-21,540,60,22,Iain Macmillan,Recurve,Monklands,Gents,The Time Capsule
 2026-02-21,540,NA,NA,Iain Macmillan,Recurve,Monklands,Gents,The Time Capsule
 2025-12-13,545,60,25,Iain Macmillan,Recurve,Monklands,Gents,ON-X
-2025-12-13,504,60,11,Inaya Siraj,Recurve,Strathclyde,Ladies,ON-X
 2026-01-17,475,60,6,Inaya Siraj,Recurve,Strathclyde,Ladies,The Time Capsule
-2024-12-21,516,0,0,James Fleming,Barebow,East Kilbride,Gents,The Time Capsule
-2025-03-22,528,60,16,James McCredie,Recurve,East Kilbride,Gents,The Time Capsule
-2024-10-20,516,60,15,James McCredie,Recurve,East Kilbride,Gents,Eastwood High School
-2025-12-13,531,60,17,James McCredie,Recurve,East Kilbride,Gents,ON-X
-2025-03-01,521,60,11,James McCredie,Recurve,East Kilbride,Gents,The Time Capsule
+2025-12-13,504,60,11,Inaya Siraj,Recurve,Strathclyde,Ladies,ON-X
+2026-03-21,508,60,15,James Embleton,Barebow,Giffnock,Gents,The Time Capsule
 2026-02-21,508,NA,NA,James McCredie,Recurve,East Kilbride,Gents,The Time Capsule
+2026-03-21,533,60,15,James McCredie,Recurve,East Kilbride,Gents,The Time Capsule
+2025-12-13,531,60,17,James McCredie,Recurve,East Kilbride,Gents,ON-X
 2026-01-17,519,60,13,James McCredie,Recurve,East Kilbride,Gents,The Time Capsule
-2024-12-21,518,0,0,James McCredie,Recurve,East Kilbride,Gents,The Time Capsule
-2024-11-24,555,60,28,James McCredie,Recurve,East Kilbride,Gents,The Time Capsule
-2025-01-12,527,60,12,James McCredie,Recurve,East Kilbride,Gents,Eastwood High School
-2025-11-01,519,60,16,James O'Donnell,Recurve,Strathclyde,Gents,The Time Capsule
 2026-02-21,544,NA,NA,James O'Donnell,Recurve,Strathclyde,Gents,The Time Capsule
-2024-11-24,566,60,26,James Ross,Compound,East Kilbride,Gents,The Time Capsule
-2024-10-20,568,60,29,James Ross,Compound,East Kilbride,Gents,Eastwood High School
-2024-12-21,567,0,0,James Ross,Compound,East Kilbride,Gents,The Time Capsule
-2026-02-21,574,NA,NA,James Ross,Compound,East Kilbride,Gents,The Time Capsule
-2025-01-12,548,59,22,James Ross,Compound,East Kilbride,Gents,Eastwood High School
-2025-12-13,581,60,41,James Ross,Compound,East Kilbride,Gents,ON-X
+2025-11-01,519,60,16,James O'Donnell,Recurve,Strathclyde,Gents,The Time Capsule
+2026-03-21,579,60,39,James Ross,Compound,East Kilbride,Gents,The Time Capsule
 2025-10-05,559,60,21,James Ross,Compound,East Kilbride,Gents,Eastwood High School
-2025-03-22,441,60,7,John McCabe,Barebow,Monklands,Gents,The Time Capsule
-2024-12-21,412,0,0,John McCabe,Barebow,Monklands,Gents,The Time Capsule
-2024-10-20,461,60,5,John Ritchie,Recurve,Monklands,Gents,Eastwood High School
-2024-11-24,460,60,2,John Ritchie,Recurve,Monklands,Gents,The Time Capsule
-2025-01-12,439,59,10,John Ritchie,Recurve,Monklands,Gents,Eastwood High School
-2025-03-01,407,54,5,John Ritchie,Recurve,Monklands,Gents,The Time Capsule
-2025-12-13,482,58,12,John Strang,Recurve,Glasgow,Gents,ON-X
-2024-10-20,541,60,19,John Strang,Recurve,Glasgow,Gents,Eastwood High School
-2025-03-01,484,58,8,John Strang,Recurve,Glasgow,Gents,The Time Capsule
-2025-01-12,516,60,9,John Strang,Recurve,Glasgow,Gents,Eastwood High School
-2025-03-22,504,59,13,John Strang,Recurve,Glasgow,Gents,The Time Capsule
-2026-02-21,523,NA,NA,John Strang,Recurve,Glasgow,Gents,The Time Capsule
-2025-11-01,512,59,15,John Strang,Recurve,Glasgow,Gents,The Time Capsule
-2024-12-21,523,0,0,John Strang,Recurve,Glasgow,Gents,The Time Capsule
-2024-11-24,509,60,17,John Strang,Recurve,Glasgow,Gents,The Time Capsule
+2026-02-21,574,NA,NA,James Ross,Compound,East Kilbride,Gents,The Time Capsule
+2025-12-13,581,60,41,James Ross,Compound,East Kilbride,Gents,ON-X
 2025-10-05,534,60,20,John Strang,Recurve,Glasgow,Gents,Eastwood High School
-2024-11-24,446,60,4,Jon Kent,Barebow,UWS,Gents,The Time Capsule
-2025-03-22,492,60,4,Jonah McArthur,Recurve,Glasgow,Ladies,The Time Capsule
-2025-11-01,545,60,16,Jonah McArthur,Recurve,Glasgow,Ladies,The Time Capsule
-2026-01-17,520,60,11,Jonah McArthur,Recurve,Glasgow,Ladies,The Time Capsule
+2026-03-21,494,60,6,John Strang,Recurve,Glasgow,Gents,The Time Capsule
+2025-12-13,482,58,12,John Strang,Recurve,Glasgow,Gents,ON-X
+2025-11-01,512,59,15,John Strang,Recurve,Glasgow,Gents,The Time Capsule
+2026-02-21,523,NA,NA,John Strang,Recurve,Glasgow,Gents,The Time Capsule
 2025-12-13,543,60,19,Jonah McArthur,Recurve,Glasgow,Ladies,ON-X
+2026-01-17,520,60,11,Jonah McArthur,Recurve,Glasgow,Ladies,The Time Capsule
 2025-10-05,531,60,19,Jonah McArthur,Recurve,Glasgow,Ladies,Eastwood High School
-2025-03-01,498,60,11,Jonah McArthur,Recurve,Glasgow,Ladies,The Time Capsule
-2025-11-01,503,60,12,Joshua McMillan,Barebow,Linwood,Gents,The Time Capsule
-2025-12-13,509,60,10,Joshua McMillan,Barebow,Linwood,Gents,ON-X
-2025-10-05,520,60,13,Joshua McMillan,Barebow,Linwood,Gents,Eastwood High School
+2025-11-01,545,60,16,Jonah McArthur,Recurve,Glasgow,Ladies,The Time Capsule
+2026-03-21,509,60,15,Jonah McArthur,Recurve,Glasgow,Ladies,The Time Capsule
 2026-02-21,499,NA,NA,Joshua McMillan,Barebow,Linwood,Gents,The Time Capsule
-2025-01-12,507,60,11,Joshua McMillan,Barebow,Linwood,Gents,Eastwood High School
+2026-03-21,507,60,16,Joshua McMillan,Barebow,Linwood,Gents,The Time Capsule
+2025-11-01,503,60,12,Joshua McMillan,Barebow,Linwood,Gents,The Time Capsule
+2025-10-05,520,60,13,Joshua McMillan,Barebow,Linwood,Gents,Eastwood High School
+2025-12-13,509,60,10,Joshua McMillan,Barebow,Linwood,Gents,ON-X
 2025-12-13,331,56,1,Joshua Williamson,Recurve,UWS,Gents,ON-X
-2024-12-21,374,0,0,Julie McPhee,Recurve,Monklands,Ladies,The Time Capsule
-2024-10-20,487,60,13,Kate Carville,Barebow,Monklands,Ladies,Eastwood High School
-2024-11-24,491,60,8,Kate Carville,Barebow,Monklands,Ladies,The Time Capsule
-2025-01-12,464,60,4,Kate Carville,Barebow,Monklands,Ladies,Eastwood High School
-2025-03-22,500,60,4,Katie Kerr,Compound,Monklands,Ladies,The Time Capsule
 2026-01-17,513,60,14,Kelsey Hunt,Recurve,Strathclyde,Ladies,The Time Capsule
-2025-11-01,544,60,21,Kelsey Hunt,Recurve,Strathclyde,Ladies,The Time Capsule
 2025-10-05,518,60,15,Kelsey Hunt,Recurve,Strathclyde,Ladies,Eastwood High School
+2025-11-01,544,60,21,Kelsey Hunt,Recurve,Strathclyde,Ladies,The Time Capsule
 2025-12-13,537,60,18,Kelsey Hunt,Recurve,Strathclyde,Ladies,ON-X
 2025-12-13,547,60,24,Kenneth Hume,Recurve,Linwood,Gents,ON-X
 2026-02-21,505,NA,NA,Kenneth Hume,Recurve,Linwood,Gents,The Time Capsule
-2025-03-01,509,60,15,Laura Yuill,Recurve,Glasgow,Ladies,The Time Capsule
-2025-03-22,428,60,3,Lauren Findlay,Recurve,East Kilbride,Ladies,The Time Capsule
-2024-12-21,483,0,0,Lauren Findlay,Recurve,East Kilbride,Ladies,The Time Capsule
-2026-02-21,468,NA,NA,Lauren Findlay,Recurve,East Kilbride,Ladies,The Time Capsule
-2024-11-24,472,60,10,Lauren Findlay,Recurve,East Kilbride,Ladies,The Time Capsule
+2026-03-21,496,59,12,Lauren Findlay,Recurve,East Kilbride,Ladies,The Time Capsule
 2026-01-17,494,60,11,Lauren Findlay,Recurve,East Kilbride,Ladies,The Time Capsule
+2026-02-21,468,NA,NA,Lauren Findlay,Recurve,East Kilbride,Ladies,The Time Capsule
 2025-10-05,472,60,9,Leah McGloin,Barebow,Linwood,Ladies,Eastwood High School
 2025-12-13,521,60,19,Leah McGloin,Barebow,Linwood,Ladies,ON-X
-2024-10-20,0,0,0,Leigh Smart,Recurve,East Kilbride,Gents,Eastwood High School
+2026-03-21,504,60,9,Leah McGloin,Barebow,Linwood,Ladies,The Time Capsule
 2026-02-21,465,NA,NA,Leigh Smart,Recurve,East Kilbride,Gents,The Time Capsule
-2024-12-21,501,0,0,Leigh Smart,Recurve,East Kilbride,Gents,The Time Capsule
-2025-03-22,510,60,12,Leigh Smart,Recurve,East Kilbride,Gents,The Time Capsule
-2024-11-24,511,60,13,Leigh Smart,Recurve,East Kilbride,Gents,The Time Capsule
-2025-03-01,474,59,9,Leigh Smart,Recurve,East Kilbride,Gents,The Time Capsule
-2025-01-12,447,57,7,Leigh Smart,Recurve,East Kilbride,Gents,Eastwood High School
+2026-03-21,414,59,5,Lisa McCoubrie,Recurve,Monklands,Ladies,The Time Capsule
 2025-12-13,155,36,3,Luca Baccino,Barebow,Strathclyde,Gents,ON-X
 2025-11-01,389,60,5,Maia Wright,Recurve,Monklands,Ladies,The Time Capsule
 2026-01-17,556,60,21,Marcus McInally,Compound,Monklands,Gents,The Time Capsule
 2025-10-05,531,60,7,Marcus McInally,Compound,Monklands,Gents,Eastwood High School
 2026-02-21,550,NA,NA,Marcus McInally,Compound,Monklands,Gents,The Time Capsule
-2024-11-24,552,59,25,Marcus McInally,Compound,Monklands,Gents,The Time Capsule
 2025-10-05,444,60,5,Margret Healy,Barebow,Linwood,Ladies,Eastwood High School
 2026-02-21,451,NA,NA,Mark Ferguson,Recurve,East Kilbride,Gents,The Time Capsule
-2026-02-21,549,NA,NA,Mark Forrester,Recurve,Monklands,Gents,The Time Capsule
-2024-10-20,516,60,24,Mark Forrester,Recurve,Monklands,Gents,Eastwood High School
-2025-01-12,517,60,15,Mark Forrester,Recurve,Monklands,Gents,Eastwood High School
-2025-03-22,504,60,11,Mark Forrester,Recurve,Monklands,Gents,The Time Capsule
-2025-11-01,537,60,14,Mark Forrester,Recurve,Monklands,Gents,The Time Capsule
-2025-03-01,520,60,17,Mark Forrester,Recurve,Monklands,Gents,The Time Capsule
 2025-12-13,490,59,9,Mark Forrester,Recurve,Monklands,Gents,ON-X
-2025-03-22,131,15,2,Mark Gayfer,Recurve,Glasgow,Gents,The Time Capsule
-2025-03-01,515,60,16,Mark Gayfer,Recurve,Glasgow,Gents,The Time Capsule
-2024-10-20,477,60,6,Megan Ross,Recurve,East Kilbride,Ladies,Eastwood High School
+2026-02-21,549,NA,NA,Mark Forrester,Recurve,Monklands,Gents,The Time Capsule
+2025-11-01,537,60,14,Mark Forrester,Recurve,Monklands,Gents,The Time Capsule
 2025-12-13,472,60,7,Megan Stewart,Recurve,East Kilbride,Ladies,ON-X
 2025-11-01,475,60,9,Megan Stewart,Recurve,East Kilbride,Ladies,The Time Capsule
 2026-01-17,493,60,10,Megan Stewart,Recurve,East Kilbride,Ladies,The Time Capsule
+2026-03-21,456,60,7,Megan Stewart,Recurve,East Kilbride,Ladies,The Time Capsule
 2025-10-05,405,58,5,Meredith Hill,Recurve,Glasgow,Ladies,Eastwood High School
-2024-12-21,506,0,0,Mickael Izharudin,Recurve,Strathclyde,Gents,The Time Capsule
-2025-03-01,529,60,16,Mickael Izharudin,Recurve,Strathclyde,Gents,The Time Capsule
-2024-11-24,498,60,11,Mickael Izharudin,Recurve,Strathclyde,Gents,The Time Capsule
 2026-01-17,279,54,1,Nathan Coghill,Traditional,Strathclyde,Gents,The Time Capsule
 2026-02-21,150,NA,NA,Nathan Coghill,Traditional,Strathclyde,Gents,The Time Capsule
-2025-12-13,325,54,5,Nathan Coghill,Traditional,Strathclyde,Gents,ON-X
 2025-11-01,399,59,2,Nathan Coghill,Traditional,Strathclyde,Gents,The Time Capsule
-2024-11-24,260,48,3,Nikolay Valkov,Traditional,Strathclyde,Gents,The Time Capsule
-2025-03-01,552,60,26,Oksana Peterson,Recurve,Glasgow,Ladies,The Time Capsule
+2025-12-13,325,54,5,Nathan Coghill,Traditional,Strathclyde,Gents,ON-X
 2026-01-17,541,60,21,Oksana Peterson,Recurve,Glasgow,Ladies,The Time Capsule
-2024-12-21,507,0,0,Oksana Peterson,Recurve,Glasgow,Ladies,The Time Capsule
-2026-02-21,553,NA,NA,Oksana Peterson,Recurve,Glasgow,Ladies,The Time Capsule
-2024-10-20,556,60,26,Oksana Peterson,Recurve,Glasgow,Ladies,Eastwood High School
+2026-03-21,523,60,15,Oksana Peterson,Recurve,Glasgow,Ladies,The Time Capsule
 2025-12-13,551,60,23,Oksana Peterson,Recurve,Glasgow,Ladies,ON-X
+2026-02-21,553,NA,NA,Oksana Peterson,Recurve,Glasgow,Ladies,The Time Capsule
 2025-10-05,520,60,14,Oksana Peterson,Recurve,Glasgow,Ladies,Eastwood High School
-2025-01-12,519,60,15,Oksana Peterson,Recurve,Glasgow,Ladies,Eastwood High School
-2024-12-21,270,0,0,Oskari Vaaranvuo,Barebow,Strathclyde,Gents,The Time Capsule
 2025-10-05,446,60,8,Ray Reynaldo,Recurve,Strathclyde,Gents,Eastwood High School
-2025-03-01,389,60,3,Ray Reynaldo,Recurve,Strathclyde,Gents,The Time Capsule
 2025-11-01,455,59,12,Ray Reynaldo,Recurve,Strathclyde,Gents,The Time Capsule
 2026-02-21,457,NA,NA,Ray Reynaldo,Recurve,Strathclyde,Gents,The Time Capsule
-2026-02-21,0,NA,NA,Renata Gusmao,Barebow,UWS,Ladies,The Time Capsule
-2024-12-21,121,0,0,Robert Bancroft,Barebow,Monklands,Gents,The Time Capsule
-2024-11-24,134,31,0,Robert Bancroft,Barebow,Monklands,Gents,The Time Capsule
-2025-03-22,502,60,10,Ross Carmichael,Barebow,Linwood,Gents,The Time Capsule
-2025-03-01,476,60,8,Ross Carmichael,Barebow,Linwood,Gents,The Time Capsule
-2025-01-12,454,60,6,Ross Carmichael,Barebow,Linwood,Gents,Eastwood High School
-2024-12-21,448,0,0,Ross Carmichael,Barebow,Linwood,Gents,The Time Capsule
-2024-10-20,328,49,5,Ross Carmichael,Barebow,Linwood,Gents,Eastwood High School
 2025-12-13,393,59,3,Ross Carmichael,Barebow,Linwood,Gents,ON-X
-2024-11-24,435,60,2,Ross Carmichael,Barebow,Linwood,Gents,The Time Capsule
+2026-01-17,380,56,7,Ross Carmichael,Barebow,Linwood,Gents,The Time Capsule
 2025-11-01,364,55,7,Ross Carmichael,Barebow,Linwood,Gents,The Time Capsule
 2026-02-21,446,NA,NA,Ross Carmichael,Barebow,Linwood,Gents,The Time Capsule
-2026-01-17,380,56,7,Ross Carmichael,Barebow,Linwood,Gents,The Time Capsule
 2025-11-01,375,59,4,Ross McGregor,Barebow,Strathclyde,Gents,The Time Capsule
-2026-01-17,304,57,2,Rylie Cargill Hall,Barebow,Orion's,Gents,The Time Capsule
 2026-02-21,371,NA,NA,Rylie Cargill Hall,Barebow,Orion's,Gents,The Time Capsule
-2025-03-01,317,60,1,Rylie Cargill Hall,Barebow,Orion's,Gents,The Time Capsule
-2025-11-01,335,54,1,Rylie Cargill Hall,Barebow,Orion's,Gents,The Time Capsule
 2025-12-13,337,59,1,Rylie Cargill Hall,Barebow,Orion's,Gents,ON-X
-2026-02-21,517,NA,NA,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
-2025-11-01,557,60,24,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
-2024-10-20,549,60,20,Sam Chapman,Recurve,Strathclyde,Gents,Eastwood High School
-2026-01-17,532,60,20,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
+2025-11-01,335,54,1,Rylie Cargill Hall,Barebow,Orion's,Gents,The Time Capsule
+2026-01-17,304,57,2,Rylie Cargill Hall,Barebow,Orion's,Gents,The Time Capsule
+2026-03-21,503,60,11,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
 2025-12-13,550,60,24,Sam Chapman,Recurve,Strathclyde,Gents,ON-X
-2024-12-21,529,0,0,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
-2025-01-12,556,60,29,Sam Chapman,Recurve,Strathclyde,Gents,Eastwood High School
-2024-11-24,550,60,26,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
-2025-12-13,409,60,4,Sandie Graham,Traditional,Monklands,Ladies,ON-X
+2025-11-01,557,60,24,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
+2026-02-21,517,NA,NA,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
+2026-01-17,532,60,20,Sam Chapman,Recurve,Strathclyde,Gents,The Time Capsule
 2025-10-05,419,60,4,Sandie Graham,Traditional,Monklands,Ladies,Eastwood High School
+2026-03-21,411,60,0,Sandie Graham,Traditional,Monklands,Ladies,The Time Capsule
 2025-11-01,441,59,2,Sandie Graham,Traditional,Monklands,Ladies,The Time Capsule
+2025-12-13,409,60,4,Sandie Graham,Traditional,Monklands,Ladies,ON-X
 2026-02-21,528,NA,NA,Scott Jamieson,Recurve,Glasgow,Gents,The Time Capsule
-2025-03-01,554,60,23,Scott Jamieson,Recurve,Glasgow,Gents,The Time Capsule
 2025-10-05,549,60,23,Scott Jamieson,Recurve,Glasgow,Gents,Eastwood High School
 2026-01-17,553,60,30,Scott Jamieson,Recurve,Glasgow,Gents,The Time Capsule
-2026-01-17,360,60,1,Stephen Harkness,Recurve,UWS,Gents,The Time Capsule
 2026-02-21,370,NA,NA,Stephen Harkness,Recurve,UWS,Gents,The Time Capsule
+2026-01-17,360,60,1,Stephen Harkness,Recurve,UWS,Gents,The Time Capsule
 2025-12-13,363,58,2,Stephen Harkness,Recurve,UWS,Gents,ON-X
-2024-11-24,504,60,9,Steven Sheldon,Recurve,East Kilbride,Gents,The Time Capsule
-2024-12-21,514,0,0,Steven Sheldon,Recurve,East Kilbride,Gents,The Time Capsule
-2025-03-01,492,60,9,Steven Sheldon,Recurve,East Kilbride,Gents,The Time Capsule
-2025-01-12,459,60,9,Steven Sheldon,Recurve,East Kilbride,Gents,Eastwood High School
