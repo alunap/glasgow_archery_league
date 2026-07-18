@@ -21,10 +21,10 @@ connect <- function() {
       drv <- RPostgres::Postgres()
       conn <- dbConnect(drv,
                         dbname = "glasgow_archery_league",
-                        host = "localhost",
-                        port = 5432,
-                        user = "postgres",
-                        password = Sys.getenv("PG_PASSWORD")
+                        host = Sys.getenv("PGHOST"),
+                        port = Sys.getenv("PGPORT"),
+                        user = Sys.getenv("PGUSER"),
+                        password = Sys.getenv("PGPASSWORD")
       )
   })
 }

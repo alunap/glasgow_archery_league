@@ -51,9 +51,11 @@ R -e "renv::snapshot()"
 
 ### Database Operations
 
-The project uses a DuckDB database (`data/data.db`) to store: - Event results (scores, hits, golds) - Archer information (name, club, bow style, sex) - Venue details (location, coordinates)
+**Postgres** (`glasgow_archery_league`) is the master database; **DuckDB** (`data/data.db`) is a read-only mirror that the Quarto site reads. Both hold the same four tables: `venues`, `archers`, `events`, `event_scores`. Postgres also holds a `badges` table (not mirrored).
 
-No direct database commands needed - all interactions are through R functions.
+Connection credentials are read from environment variables (`PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, `PGDATABASE`) — see `.Renviron` for the R scripts and `web/.env` for the web app. Do not hardcode credentials.
+
+The mirror is refreshed from Postgres by `functions/copyToDuck.R` (R) or automatically by the web app after every write.
 
 ## Architecture
 
@@ -82,11 +84,22 @@ Key functions that power the site:
 
 The DuckDB database contains linked tables: - `events` - the date and round of each event with link to venue - `archers` - Archer details (name, club, bow style, gender) - `venues` - Tournament locations with geographical data - `event_scores` - the score for each archer at each event with links to archer and event tables.
 
+## Web admin app (web/)
+
+A Vite + React + Express admin app that replaces the manual R import scripts. It imports the monthly "Team Scores" Excel, provides view/edit CRUD for all five tables, and refreshes the DuckDB mirror after every write. See `web/README.md` for full setup and usage.
+
+```bash
+cd web && cp .env.example .env   # fill in PGHOST + PGPASSWORD
+npm install && npm run dev        # API on :5050, app on :5173
+```
+
+Note: the monthly Excel format changed to a per-club "Team Scores" layout with bowstyle codes RC/C/BB/TRAD and a Tens column (→ golds), and no sex column. The web app handles this; the legacy `functions/import_data.R` still expects the old "Results" sheet format.
+
 ## Development Patterns
 
 ### Adding New Events
 
-1.  Add event data to the database by running import_data.R followed by copyToDuck.R
+1.  Add the event row in Postgres (via the web app's Events page, or SQL) and import the monthly Excel via the web app's Import page (this also refreshes DuckDB). Legacy alternative: run `functions/import_data.R` then `functions/copyToDuck.R`.
 2.  Create new event detail page in `Events/` folder (copy existing template)
 3.  Update `Events/events.qmd` to include new event section
 4.  Update main league table in `index.qmd` if season complete
