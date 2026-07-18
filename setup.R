@@ -15,10 +15,10 @@ here::i_am("setup.R")
 # Code to rerun each month to populate the data file from Postgres
 conn <- dbConnect(RPostgres::Postgres(),
   dbname = "glasgow_archery_league",
-  host = "127.0.0.1",
-  port = 5432,
-  user = "postgres",
-  password = "strawberrySundae"
+  host = Sys.getenv("PGHOST"),
+  port = Sys.getenv("PGPORT"),
+  user = Sys.getenv("PGUSER"),
+  password = Sys.getenv("PGPASSWORD")
 )
 
 ## Read in new tables from Postgres
