@@ -29,7 +29,8 @@ export default function Archers() {
     { key: 'archer', label: 'Archer', editable: true },
     { key: 'club', label: 'Club', editable: true, type: 'select', options: CLUBS },
     { key: 'bowstyle', label: 'Bowstyle', editable: true, type: 'select', options: BOWSTYLES },
-    { key: 'sex', label: 'Sex', editable: true, type: 'select', options: SEXES }
+    { key: 'sex', label: 'Sex', editable: true, type: 'select', options: SEXES },
+    { key: 'highest_badge', label: 'Highest badge' }
   ]
 
   return (

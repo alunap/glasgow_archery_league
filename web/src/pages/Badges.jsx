@@ -3,7 +3,7 @@ import { crud } from '../api.js'
 import TableEditor from '../components/TableEditor.jsx'
 
 const b = crud('badges')
-const BOWSTYLES = ['Compound WA18', 'Recurve', 'Barebow', 'Traditional', 'Longbow']
+const BOWSTYLES = ['Compound', 'Recurve', 'Barebow', 'Traditional', 'Longbow']
 const BADGE_COLORS = ['Pink', 'Green', 'White', 'Black', 'Blue', 'Red', 'Gold', 'Purple']
 
 export default function Badges() {

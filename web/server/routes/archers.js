@@ -9,14 +9,28 @@ const SEXES = ['Gents', 'Ladies']
 const BOWSTYLES = ['Recurve', 'Compound', 'Barebow', 'Traditional', 'Longbow']
 
 // GET /api/archers?club=&bowstyle=&sex=
+// Includes computed `highest_badge`: the highest-threshold badge whose minimum
+// is <= the archer's best event score, matched on bowstyle. Not stored in DB.
 router.get('/', async (req, res) => {
   const { club, bowstyle, sex } = req.query
   const where = []
   const params = []
-  if (club) { params.push(club); where.push(`club = $${params.length}`) }
-  if (bowstyle) { params.push(bowstyle); where.push(`bowstyle = $${params.length}`) }
-  if (sex) { params.push(sex); where.push(`sex = $${params.length}`) }
-  const sql = `SELECT * FROM archers ${where.length ? 'WHERE ' + where.join(' AND ') : ''} ORDER BY archer`
+  if (club) { params.push(club); where.push(`a.club = $${params.length}`) }
+  if (bowstyle) { params.push(bowstyle); where.push(`a.bowstyle = $${params.length}`) }
+  if (sex) { params.push(sex); where.push(`a.sex = $${params.length}`) }
+  const sql = `
+    SELECT a.*, COALESCE(b.badge, '') AS highest_badge
+    FROM archers a
+    LEFT JOIN LATERAL (
+      SELECT b.badge FROM badges b
+      WHERE b.bowstyle = a.bowstyle
+        AND b.minimum <= (SELECT MAX(s.score) FROM event_scores s WHERE s.archer_id = a.id)
+      ORDER BY b.minimum DESC
+      LIMIT 1
+    ) b ON true
+    ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
+    ORDER BY a.archer
+  `
   const { rows } = await pool.query(sql, params)
   res.json(rows)
 })
