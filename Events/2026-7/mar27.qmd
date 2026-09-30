@@ -1,0 +1,228 @@
+---
+title: "March 2027 Tournament"
+date: "2027-03-21"
+execute: 
+  echo: false
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r, install, eval=FALSE}
+install.packages("tidyverse", "here", "english")
+```
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
+library(tidyverse)
+library(here)
+library(english)
+source(here("functions", "utility_functions.R"))
+```
+
+```{r}
+event_date <- ymd(20270321)
+scores <- load_archer_scores(event_date)
+current_venue <- venue(event_date)
+
+venue_name <- if (nrow(current_venue) > 0) current_venue$location else "The Time Capsule"
+town <- if (nrow(current_venue) > 0) current_venue$town else "Coatbridge"
+w3w <- if (nrow(current_venue) > 0) current_venue$w3w else "hoping.gloves.shins"
+postcode <- if (nrow(current_venue) > 0) current_venue$postcode else "ML5 1DL"
+has_scores <- nrow(scores) > 0
+num_teams <- if (has_scores) n_distinct(scores$club) else 0
+```
+
+*Venue:* `{r} venue_name`, `{r} town`
+
+*what3words:* `{r} w3w`, *postcode:* `{r} postcode`
+
+*Date:* `{r} event_date`
+
+`{r} if (has_scores) paste(str_to_title(as.english(num_teams)), "teams took part. The scores of the top four members of each team were summed.") else "Scores have not yet been recorded for this event."`
+
+# Team Results
+
+```{r}
+#| results: asis
+if (has_scores) {
+  knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*Scores will be posted following the tournament.*")
+}
+```
+
+# Individual Scores - by Bowstyle
+
+### Ladies Recurve
+
+```{r}
+#| results: asis
+if (has_scores) {
+  lady_r <- score_table('Recurve', 'Ladies', scores)
+  if (nrow(lady_r) > 0) knitr::kable(lady_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+### Ladies Barebow
+
+```{r}
+#| results: asis
+if (has_scores) {
+  lady_b <- score_table('Barebow', 'Ladies', scores)
+  if (nrow(lady_b) > 0) knitr::kable(lady_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+### Ladies Traditional
+
+```{r}
+#| results: asis
+if (has_scores) {
+  lady_t <- score_table('Traditional', 'Ladies', scores)
+  if (nrow(lady_t) > 0) knitr::kable(lady_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+### Gents Compound
+
+```{r}
+#| results: asis
+if (has_scores) {
+  gent_c <- score_table('Compound', 'Gents', scores)
+  if (nrow(gent_c) > 0) knitr::kable(gent_c, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+### Gents Recurve
+
+```{r}
+#| results: asis
+if (has_scores) {
+  gent_r <- score_table('Recurve', 'Gents', scores)
+  if (nrow(gent_r) > 0) knitr::kable(gent_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+### Gents Barebow
+
+```{r}
+#| results: asis
+if (has_scores) {
+  gent_b <- score_table('Barebow', 'Gents', scores)
+  if (nrow(gent_b) > 0) knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+### Gents Longbow
+
+```{r}
+#| results: asis
+if (has_scores) {
+  gent_l <- score_table('Longbow', 'Gents', scores)
+  if (nrow(gent_l) > 0) knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+### Gents Traditional
+
+```{r}
+#| results: asis
+if (has_scores) {
+  gent_t <- score_table('Traditional', 'Gents', scores)
+  if (nrow(gent_t) > 0) knitr::kable(gent_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+# Individual Scores - by Club
+
+::: panel-tabset
+## Glasgow
+
+```{r}
+#| results: asis
+if (has_scores) {
+  glas <- club_scores("Glasgow", scores)
+  if (nrow(glas) > 0) knitr::kable(glas, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+## East Kilbride
+
+```{r}
+#| results: asis
+if (has_scores) {
+  ek <- club_scores("East Kilbride", scores)
+  if (nrow(ek) > 0) knitr::kable(ek, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+## Monklands
+
+```{r}
+#| results: asis
+if (has_scores) {
+  monk <- club_scores("Monklands", scores)
+  if (nrow(monk) > 0) knitr::kable(monk, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+## Strathclyde
+
+```{r}
+#| results: asis
+if (has_scores) {
+  strath <- club_scores("Strathclyde", scores)
+  if (nrow(strath) > 0) knitr::kable(strath, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+## Linwood
+
+```{r}
+#| results: asis
+if (has_scores) {
+  lin <- club_scores("Linwood", scores)
+  if (nrow(lin) > 0) knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+
+## Orion's
+
+```{r}
+#| results: asis
+if (has_scores) {
+  orion <- club_scores("Orion's", scores)
+  if (nrow(orion) > 0) knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
+} else {
+  cat("*No scores yet.*")
+}
+```
+:::

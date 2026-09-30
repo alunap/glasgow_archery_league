@@ -76,5 +76,29 @@
   },
   "WARP.md": {
     "WARP.html": "b0a46b48"
+  },
+  "Events/2026-7/template.qmd": {
+    "template.html": "bbdebb64"
+  },
+  "Events/2026-7/events.qmd": {
+    "events.html": "7699e7f3"
+  },
+  "Events/2026-7/nov26.qmd": {
+    "nov26.html": "aafd3b82"
+  },
+  "Events/2026-7/oct26.qmd": {
+    "oct26.html": "87af57f7"
+  },
+  "Events/2026-7/mar27.qmd": {
+    "mar27.html": "f7210fa4"
+  },
+  "Events/2026-7/jan27.qmd": {
+    "jan27.html": "e7245887"
+  },
+  "Events/2026-7/feb27.qmd": {
+    "feb27.html": "2008412c"
+  },
+  "Events/2026-7/dec26.qmd": {
+    "dec26.html": "596b783b"
   }
 }

@@ -5,7 +5,7 @@ library(DBI)
 library(duckdb)
 library(tidyverse)
 library(glue)
-library(xlsx)
+# library(xlsx)
 library(here)
 here::i_am("functions/utility_functions.R")
 
