@@ -10,13 +10,18 @@ library(here)
 
 # Load the archer scores
 load_archer_scores <- function(theDate) {
-  conduck <- DBI::dbConnect(duckdb::duckdb(), dbdir = here("data", "data.db"))
+  conduck <- DBI::dbConnect(duckdb::duckdb(shared_home = FALSE), dbdir = here("data", "data.db"), read_only = TRUE)
   stmnt <- glue("SELECT e.date_of_event AS event_date, s.score, s.hits, s.golds, a.archer, a.bowstyle, a.club, a.sex, v.location
-            FROM events e
+            FROM (
+              SELECT id, date_of_event, venue_id
+              FROM events
+              WHERE abs(date_diff('day', date_of_event, DATE '{theDate}')) <= 3
+              ORDER BY abs(date_diff('day', date_of_event, DATE '{theDate}')) ASC
+              LIMIT 1
+            ) e
                LEFT JOIN venues v ON e.venue_id = v.id
                INNER JOIN event_scores s ON e.id = s.event_id
                INNER JOIN archers a ON s.archer_id = a.id
-            WHERE e.date_of_event = '{theDate}'
             ORDER BY a.archer;")
   query <- dbSendQuery(conduck, stmnt)
   scores <- dbFetch(query) |> as_tibble()
@@ -25,7 +30,7 @@ load_archer_scores <- function(theDate) {
 }
 
 load_all_archer_scores <- function() {
-  conduck <- DBI::dbConnect(duckdb::duckdb(), dbdir = here("data", "data.db"))
+  conduck <- DBI::dbConnect(duckdb::duckdb(shared_home = FALSE), dbdir = here("data", "data.db"), read_only = TRUE)
   stmnt <- "SELECT e.date_of_event AS event_date, s.score, s.hits, s.golds, a.archer, a.bowstyle, a.club, a.sex, v.location
             FROM events e
                LEFT JOIN venues v ON e.venue_id = v.id
@@ -39,12 +44,16 @@ load_all_archer_scores <- function() {
 }
 
 venue <- function(theDate) {
-  conduck <- DBI::dbConnect(duckdb::duckdb(), dbdir = here("data", "data.db"))
+  conduck <- DBI::dbConnect(duckdb::duckdb(shared_home = FALSE), dbdir = here("data", "data.db"), read_only = TRUE)
   stmnt <- glue("SELECT e.date_of_event AS event_date, v.location, v.town, v.postcode, v.w3w, v.lat, v.lon
-            FROM events e
-            LEFT JOIN venues v ON e.venue_id = v.id
-            WHERE e.date_of_event = '{theDate}'
-            LIMIT 1;")
+            FROM (
+              SELECT id, date_of_event, venue_id
+              FROM events
+              WHERE abs(date_diff('day', date_of_event, DATE '{theDate}')) <= 3
+              ORDER BY abs(date_diff('day', date_of_event, DATE '{theDate}')) ASC
+              LIMIT 1
+            ) e
+            LEFT JOIN venues v ON e.venue_id = v.id;")
   query <- dbSendQuery(conduck, stmnt)
   venues <- dbFetch(query)
   DBI::dbDisconnect(conduck)
@@ -62,7 +71,7 @@ score_table <- function(bow, s, thescores) {
 
 # Load scores for each club for the given date
 club_scores <- function(theclub, thescores) {
-  tbl <- thescores |>
+  thescores |>
     filter(club == theclub) |>
     arrange_at(c("score", "golds"), desc) |>
     select(c("archer", "bowstyle", "score", "hits", "golds"))
