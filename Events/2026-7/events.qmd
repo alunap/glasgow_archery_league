@@ -56,7 +56,17 @@ if (nrow(scores) > 0) {
 
 ### Stage 3
 
-*Venue:* TBC. *Date:* TBC. *Time:* TBC
+```{r}
+eventDate <- ymd(20261213)
+scores <- load_archer_scores(eventDate)
+current_venue <- venue(eventDate)
+venue_name <- if (nrow(current_venue) > 0) current_venue$location else "The Time Capsule"
+if (nrow(scores) > 0) {
+  knitr::kable(team_results(scores), col.names = c("Club", "Score", "Hits", "Golds"))
+}
+```
+
+*Venue:* `{r} venue_name`. *Date:* 2026-12-13. *Time:* 09:00 - 13:00
 
 [Detailed results](dec26.qmd)
 

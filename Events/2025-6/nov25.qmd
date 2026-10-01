@@ -8,10 +8,6 @@ editor_options:
   chunk_output_type: inline
 ---
 
-```{r, install, eval=FALSE}
-install.packages( "quarto", "tidyverse", "here", "english")
-```
-
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
@@ -32,7 +28,7 @@ postcode <- current_venue$postcode
 num_teams <- n_distinct(scores$club)
 ```
 
-*Venue:* `{r} venue_name`,  `{r} town`
+*Venue:* `{r} venue_name`, `{r} town`
 
 *what3words:* `{r} w3w`, *postcode:* `{r} postcode`
 
@@ -148,5 +144,4 @@ knitr::kable(lin, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 orion <- club_scores("Orion's", scores) 
 knitr::kable(orion, col.names = c("Archer", "Style", "Score", "Hits", "Golds"))
 ```
-
 :::

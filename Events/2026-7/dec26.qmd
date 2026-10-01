@@ -8,10 +8,6 @@ editor_options:
   chunk_output_type: inline
 ---
 
-```{r, install, eval=FALSE}
-install.packages("tidyverse", "here", "english")
-```
-
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
@@ -23,13 +19,13 @@ source(here("functions", "utility_functions.R"))
 
 ```{r}
 # Date to be confirmed
-event_date <- NA
+event_date <- 20261213
 scores <- tibble()
 current_venue <- tibble()
 
 venue_name <- "TBC"
 town <- "TBC"
-w3w <- "TBC"
+w3w <- "fluid.trip.tanks"
 postcode <- "TBC"
 has_scores <- FALSE
 num_teams <- 0

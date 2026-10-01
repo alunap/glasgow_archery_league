@@ -8,10 +8,6 @@ editor_options:
   chunk_output_type: inline
 ---
 
-```{r, install, eval=FALSE}
-install.packages( "quarto", "tidyverse", "here", "english")
-```
-
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(fig.width = 8, fig.height = 5)
@@ -33,7 +29,6 @@ num_teams <- n_distinct(scores$club)
 *Venue:* `{r} venue_name`, `{r} town`
 
 *Date:* `{r} event_date`
-
 
 `{r} str_to_title(as.english(num_teams))` teams took part. The scores of the top four members of each time was summed, except Orion which had one archer, and Linwood, which had just three archers on their team.
 
@@ -161,4 +156,3 @@ if (nrow(uws) > 0) {
 }
 ```
 :::
-
