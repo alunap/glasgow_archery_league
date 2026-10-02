@@ -57,7 +57,7 @@ if (has_scores) {
 #| results: asis
 if (has_scores) {
   lady_r <- score_table('Recurve', 'Ladies', scores)
-  if (nrow(lady_r) > 0) knitr::kable(lady_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+  if (nrow(lady_r) > 0) knitr::kable(lady_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
 } else {
   cat("*No scores yet.*")
 }
@@ -69,7 +69,7 @@ if (has_scores) {
 #| results: asis
 if (has_scores) {
   lady_b <- score_table('Barebow', 'Ladies', scores)
-  if (nrow(lady_b) > 0) knitr::kable(lady_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+  if (nrow(lady_b) > 0) knitr::kable(lady_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
 } else {
   cat("*No scores yet.*")
 }
@@ -81,7 +81,7 @@ if (has_scores) {
 #| results: asis
 if (has_scores) {
   lady_t <- score_table('Traditional', 'Ladies', scores)
-  if (nrow(lady_t) > 0) knitr::kable(lady_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+  if (nrow(lady_t) > 0) knitr::kable(lady_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
 } else {
   cat("*No scores yet.*")
 }
@@ -93,7 +93,7 @@ if (has_scores) {
 #| results: asis
 if (has_scores) {
   gent_c <- score_table('Compound', 'Gents', scores)
-  if (nrow(gent_c) > 0) knitr::kable(gent_c, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+  if (nrow(gent_c) > 0) knitr::kable(gent_c, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
 } else {
   cat("*No scores yet.*")
 }
@@ -105,7 +105,7 @@ if (has_scores) {
 #| results: asis
 if (has_scores) {
   gent_r <- score_table('Recurve', 'Gents', scores)
-  if (nrow(gent_r) > 0) knitr::kable(gent_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+  if (nrow(gent_r) > 0) knitr::kable(gent_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
 } else {
   cat("*No scores yet.*")
 }
@@ -117,7 +117,7 @@ if (has_scores) {
 #| results: asis
 if (has_scores) {
   gent_b <- score_table('Barebow', 'Gents', scores)
-  if (nrow(gent_b) > 0) knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+  if (nrow(gent_b) > 0) knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
 } else {
   cat("*No scores yet.*")
 }
@@ -129,7 +129,7 @@ if (has_scores) {
 #| results: asis
 if (has_scores) {
   gent_l <- score_table('Longbow', 'Gents', scores)
-  if (nrow(gent_l) > 0) knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+  if (nrow(gent_l) > 0) knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
 } else {
   cat("*No scores yet.*")
 }
@@ -141,7 +141,7 @@ if (has_scores) {
 #| results: asis
 if (has_scores) {
   gent_t <- score_table('Traditional', 'Gents', scores)
-  if (nrow(gent_t) > 0) knitr::kable(gent_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
+  if (nrow(gent_t) > 0) knitr::kable(gent_t, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
 } else {
   cat("*No scores yet.*")
 }
