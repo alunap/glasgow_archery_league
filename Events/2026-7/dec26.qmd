@@ -19,16 +19,16 @@ source(here("functions", "utility_functions.R"))
 
 ```{r}
 # Date to be confirmed
-event_date <- 20261213
+event_date <- ymd(20261213)
 scores <- tibble()
 current_venue <- tibble()
 
-venue_name <- "TBC"
-town <- "TBC"
-w3w <- "fluid.trip.tanks"
-postcode <- "TBC"
-has_scores <- FALSE
-num_teams <- 0
+venue_name <- if (nrow(current_venue) > 0) current_venue$location else "Eastwood High School"
+town <- if (nrow(current_venue) > 0) current_venue$town else "Newton Mearns"
+w3w <- if (nrow(current_venue) > 0) current_venue$w3w else "fluid.trip.tanks"
+postcode <- if (nrow(current_venue) > 0) current_venue$postcode else "G77 6NQ"
+has_scores <- nrow(scores) > 0
+num_teams <- if (has_scores) n_distinct(scores$club) else 0
 ```
 
 *Venue:* `{r} venue_name`, `{r} town`
