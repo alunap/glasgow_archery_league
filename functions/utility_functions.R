@@ -61,17 +61,25 @@ venue <- function(theDate) {
 }
 
 # Return a data frame for the scores for a particular bowstyle and sex
-score_table <- function(bow, s, thescores) {
-  badges <- read.csv(here("badges.csv"))
-  target_style <- if (bow %in% c("Traditional", "Longbow")) "Traditional" else bow
-  b_subset <- badges[badges$bowstyle == target_style, ]
-  b_subset <- b_subset[order(b_subset$minimum), ]
-
-  tbl <- thescores %>%
+score_table <- function(bow, s, thescores, badges = FALSE) {
+  tbl <- thescores |>
     filter(bowstyle == bow, sex == s) |>
-    arrange_at(c("score", "golds"), desc) |>
-    mutate(badge = if (nrow(b_subset) > 0) c("None", b_subset$badge)[findInterval(score, b_subset$minimum) + 1] else "None") |>
-    select(c("archer", "club", "score", "hits", "golds", "badge"))
+    arrange_at(c("score", "golds"), desc)
+
+  if (badges) {
+    b_df <- read.csv(here("badges.csv"))
+    target_style <- if (bow %in% c("Traditional", "Longbow")) "Traditional" else bow
+    b_subset <- b_df[b_df$bowstyle == target_style, ]
+    b_subset <- b_subset[order(b_subset$minimum), ]
+
+    tbl <- tbl |>
+      mutate(badge = if (nrow(b_subset) > 0) c("None", b_subset$badge)[findInterval(score, b_subset$minimum) + 1] else "None") |>
+      select(c("archer", "club", "score", "hits", "golds", "badge"))
+  } else {
+    tbl <- tbl |>
+      select(c("archer", "club", "score", "hits", "golds"))
+  }
+
   return(tbl)
 }
 

@@ -29,21 +29,14 @@ See the Events tab for the scores for events that took place at each stage.
 
 ## 2026/7 Schedule
 
-+-------------+---------------+------------------+----------------------+---------------------+
-| Stage       | Date          | Time             | Location             | What3words          |
-+=============+===============+==================+======================+=====================+
-| 1           | 18th October  | 9AM - 1PM        | Eastwood High School | fluid.trip.tanks    |
-+-------------+---------------+------------------+----------------------+---------------------+
-| 2           | 22nd November | 12:30PM - 4:30PM | Time Capsule         | hoping.gloves.shins |
-+-------------+---------------+------------------+----------------------+---------------------+
-| 3           | 13th December | 9AM - 1PM        | Eastwood High School | fluid.trip.tanks    |
-+-------------+---------------+------------------+----------------------+---------------------+
-| 4           | 24th January  | 12:30PM - 4:30PM | Time Capsule         | hoping.gloves.shins |
-+-------------+---------------+------------------+----------------------+---------------------+
-| 5           | 21st February | 12:30PM - 4:30PM | Time Capsule         | hoping.gloves.shins |
-+-------------+---------------+------------------+----------------------+---------------------+
-| 6           | 21st March    | 12:30PM - 4:30PM | Time Capsule         | hoping.gloves.shins |
-+-------------+---------------+------------------+----------------------+---------------------+
+| Stage | Date | Time | Location | What3words |
+|----|----|----|----|----|
+| 1 | 18th October | 9AM - 1PM | Eastwood High School | fluid.trip.tanks |
+| 2 | 22nd November | 12:30PM - 4:30PM | Time Capsule | hoping.gloves.shins |
+| 3 | 13th December | 9AM - 1PM | Eastwood High School | fluid.trip.tanks |
+| 4 | 24th January | 12:30PM - 4:30PM | Time Capsule | hoping.gloves.shins |
+| 5 | 21st February | 12:30PM - 4:30PM | Time Capsule | hoping.gloves.shins |
+| 6 | 21st March | 12:30PM - 4:30PM | Time Capsule | hoping.gloves.shins |
 
 ## 2025-6 Season
 
