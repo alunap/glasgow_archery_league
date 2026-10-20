@@ -93,7 +93,7 @@ add_new_scores <- function(results, con, event) {
     filter(archer != 0, score != 0) %>%
     mutate(sex = case_when(
       grepl("F", sex) ~ "Ladies",
-      grepl("M", sex) ~ "Gents"
+      grepl("O", sex) ~ "Open"
     )) %>%
     mutate(bowstyle = bowstyles[bowstyle]) %>%
     mutate(club = clubs[club]) %>%
