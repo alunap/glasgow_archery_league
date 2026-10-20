@@ -7,8 +7,10 @@
 *.html
 *.pdf
 *.docx
-_site/*
-docs/                  # common for rendered sites
+_site/
+.quarto/
+
+docs/
 _freeze/
 .ipynb_checkpoints/
 
@@ -19,8 +21,9 @@ _freeze/
 .Rprofile
 .RData
 .Rproj.user/
-.quarto/*
-.quartoignore          # if you create one
+.quarto/
+.quartoignore
+_site/
 
 # OS and editor junk
 .DS_Store
@@ -32,13 +35,14 @@ Thumbs.db
 *.env
 .Renviron
 credentials.R
-config.yml             # if it contains keys
+config.yml
 
 # Large build artifacts
 *.tar.gz
 *.zip
-/.quarto/
 .Rapp.history
 _publish.yml
 
 **/*.quarto_ipynb
+
+/.quarto/
