@@ -58,31 +58,43 @@ sensible defaults). `PGPASSWORD` may be quoted or unquoted. The server loads
 `.env` with `override: true`, so the file wins over any stale shell-level
 `PGPASSWORD` (e.g. an empty one left by `psql`). See `.env.example`.
 
-## The import flow
-The monthly Excel is a single sheet named **"Team Scores"**, laid out as
-per-club blocks (a club header row, then archer rows with name, bowstyle code,
-score, hits, tens). This differs from the old "Results" sheet format.
+## Human Comprehension Plan: importing results
+The importer reads the **Results** worksheet, not the older Team Scores layout.
+The current workbook labels its Archer and Club columns in reverse: the cells
+actually contain target, archer, club, sex, bowstyle, score, hits, and tens, in
+that order. The parser reads the cell positions and maps tens to `golds`.
+Blank or zero-only score rows are skipped; missing, unsupported or empty Results
+sheets and invalid numeric values are rejected.
 
-1. Go to **Import**, pick the event (date / venue / stage), upload the `.xlsx`.
-2. **Preview** parses the sheet and splits rows into:
-   - **Known archers** — matched on `(archer, club, bowstyle)` against the
-     `archers` table. Rows already imported for that event are flagged.
-   - **New archers** — no match. An archer who has **changed club or bowstyle**
-     legitimately appears here and should be added as a new row (this is why
-     the match key includes club and bowstyle, not just the name). Spelling
-     variants also appear here — fix them in the sheet or merge via the Archers
-     page rather than creating a duplicate.
-3. For every new archer, set **Sex** (Gents/Ladies) — required. The Commit
-   button is disabled until all new archers have a sex.
-4. **Commit** runs in a single Postgres transaction: inserts new archers,
-   replaces that event's `event_scores` (idempotent re-import), then refreshes
-   the DuckDB mirror. A summary is shown (new archers / scores inserted / DuckDB
-   row count).
+1. Go to **Import** and upload the workbook. The default event is the most
+   recent event on or before the local date without any recorded scores. If
+   none qualifies, select an event manually. Events with existing scores remain
+   available and are labelled as imported. Select **Preview**.
+2. Review the known archers, matched on `(archer, club, bowstyle)`. An archer
+   whose club or bowstyle changed appears as new and gets a separate archer
+   record, preserving links from earlier results. For a misspelled name, edit
+   the name in the review table or choose a suggested existing name. An exact
+   match on name, club and bowstyle immediately reuses the existing archer;
+   the stored name and earlier results are not changed.
+3. Review the new archers. Sex is filled from the sheet when recognized; choose
+   a valid sex, club and bowstyle for any missing or unknown values before
+   committing. A known archer's stored sex is never changed by import; a
+   different spreadsheet sex is flagged for review. If edited details match an
+   existing archer, the match is indicated and any sex discrepancy is flagged.
+4. **Commit** inserts new archers and replaces all scores for the selected event
+   in one Postgres transaction, then refreshes the DuckDB mirror. Review the
+   preview carefully: an existing event's scores will be replaced.
 
-Bowstyle codes are mapped: `RC`→Recurve, `C`→Compound, `BB`→Barebow,
-`TRAD`→Traditional, `LB`→Longbow. Club `Orions`→`Orion's`. The sheet's **Tens**
-column maps to `golds`. The sheet has **no sex column** — that's why sex is set
-in the review step. Unknown bowstyle codes are flagged in the UI.
+Sex `O` maps to `Open` and `F` maps to `Ladies`. Longbow (including `LB`) maps
+to Traditional; the parser also recognizes the common Recurve, Compound,
+Barebow and Traditional codes. Club aliases are mapped to database names:
+`EK Archery Club` → East Kilbride, `Orion's Archers` → Orion's,
+`Strathclyde AC` → Strathclyde, `Glasgow Archers` (also `Glagow Archers`) →
+Glasgow, `UWS Archery Club` → UWS, `Monklands AC` → Monklands,
+`Linwood AC` → Linwood and `Giffnock Archers` → Giffnock.
+
+Run `npm test` in `web/` for synthetic workbook and mocked API tests, and
+`npm run build` to check the frontend. Neither command imports live results.
 
 ## Pages
 - **Home** — DB health (per-table row counts) and a manual "Refresh DuckDB" button.
