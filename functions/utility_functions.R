@@ -100,3 +100,58 @@ team_results <- function(thescores) {
     summarise(across(score:golds, sum)) |>
     arrange_at(c("score", "golds"), desc)
 }
+
+current_league_table <- function(scores, clubs) {
+  month_order <- c(10L, 11L, 12L, 1L, 2L, 3L)
+  month_names <- c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar")
+
+  event_scores <- scores |>
+    mutate(score = as.numeric(score)) |>
+    filter(!is.na(score), score > 0) |>
+    group_by(event_date, location, club) |>
+    slice_max(order_by = score, n = 4, with_ties = FALSE) |>
+    summarise(event_score = sum(score), .groups = "drop") |>
+    group_by(event_date, location) |>
+    mutate(
+      event_position = min_rank(desc(event_score)),
+      points = case_when(
+        event_position == 1L ~ 5L,
+        event_position == 2L ~ 4L,
+        event_position == 3L ~ 3L,
+        event_position == 4L ~ 2L,
+        event_position == 5L ~ 1L,
+        TRUE ~ 0L
+      )
+    ) |>
+    ungroup() |>
+    mutate(month = lubridate::month(event_date))
+
+  recorded_months <- unique(event_scores$month)
+  monthly_points <- event_scores |>
+    group_by(club, month) |>
+    summarise(points = sum(points), .groups = "drop")
+
+  month_points <- tidyr::expand_grid(club = clubs, month = month_order) |>
+    left_join(monthly_points, by = c("club", "month")) |>
+    mutate(points = if_else(month %in% recorded_months, coalesce(points, 0L), NA_integer_)) |>
+    pivot_wider(names_from = month, values_from = points, names_prefix = "month_") |>
+    rename(Oct = month_10, Nov = month_11, Dec = month_12, Jan = month_1, Feb = month_2, Mar = month_3)
+
+  arrow_totals <- event_scores |>
+    group_by(club) |>
+    summarise(arrow_score = sum(event_score), .groups = "drop")
+
+  tibble(club = clubs) |>
+    left_join(month_points, by = "club") |>
+    left_join(arrow_totals, by = "club") |>
+    mutate(
+      arrow_score = coalesce(arrow_score, 0),
+      Total = rowSums(across(all_of(month_names), ~ replace_na(.x, 0L)))
+    ) |>
+    arrange(desc(Total), desc(arrow_score), club) |>
+    mutate(
+      Position = row_number(),
+      across(all_of(month_names), ~ if_else(is.na(.x), "-", as.character(.x)))
+    ) |>
+    select(Position, Club = club, all_of(month_names), Total)
+}

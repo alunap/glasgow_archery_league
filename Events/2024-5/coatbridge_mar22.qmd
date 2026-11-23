@@ -59,14 +59,14 @@ knitr::kable(lady_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ### Gents Recurve
 
 ```{r}
-gent_r <- score_table('Recurve', 'Gents', scores)
+gent_r <- score_table('Recurve', 'Open', scores)
 knitr::kable(gent_r, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
 ### Gents Barebow
 
 ```{r}
-gent_b <- score_table('Barebow', 'Gents', scores)
+gent_b <- score_table('Barebow', 'Open', scores)
 knitr::kable(gent_b, col.names = c("Archer", "Club", "Score", "Hits", "Golds"))
 ```
 
