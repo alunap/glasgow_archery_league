@@ -1,3 +1,4 @@
+// Manage event records and indicate which events already have scores.
 import { Router } from 'express'
 import { pool } from '../db.js'
 import { syncDuckDB } from '../duckdb-sync.js'
@@ -7,7 +8,9 @@ const router = Router()
 // GET /api/events  — includes venue location via join
 router.get('/', async (_req, res) => {
   const { rows } = await pool.query(`
-    SELECT e.id, e.date_of_event, e.venue_id, e.round, v.location AS venue_name, v.town
+    SELECT e.id, e.date_of_event::text AS date_of_event, e.venue_id, e.round,
+           v.location AS venue_name, v.town,
+           EXISTS (SELECT 1 FROM event_scores s WHERE s.event_id = e.id) AS has_scores
     FROM events e LEFT JOIN venues v ON e.venue_id = v.id
     ORDER BY e.date_of_event DESC
   `)

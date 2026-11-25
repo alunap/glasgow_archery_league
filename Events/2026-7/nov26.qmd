@@ -123,18 +123,6 @@ if (has_scores) {
 }
 ```
 
-### Open Longbow
-
-```{r}
-#| results: asis
-if (has_scores) {
-  gent_l <- score_table('Longbow', 'Open', scores, badges = TRUE)
-  if (nrow(gent_l) > 0) knitr::kable(gent_l, col.names = c("Archer", "Club", "Score", "Hits", "Golds", "Badge"))
-} else {
-  cat("*No scores yet.*")
-}
-```
-
 ### Open Traditional
 
 ```{r}

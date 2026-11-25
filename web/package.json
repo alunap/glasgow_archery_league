@@ -8,6 +8,7 @@
     "dev:server": "nodemon --watch server server/index.js",
     "dev:vite": "vite",
     "build": "vite build",
+    "test": "node --test",
     "start": "node server/index.js",
     "preview": "vite preview"
   },

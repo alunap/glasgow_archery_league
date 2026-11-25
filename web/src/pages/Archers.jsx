@@ -1,18 +1,21 @@
+// Display and edit archers with filters for their database categories.
 import { useEffect, useState } from 'react'
 import api, { crud } from '../api.js'
 import TableEditor from '../components/TableEditor.jsx'
 
 const CLUBS = ['Glasgow', 'Strathclyde', 'East Kilbride', 'Monklands', 'Linwood', "Orion's", 'UWS', 'Giffnock']
 const BOWSTYLES = ['Recurve', 'Compound', 'Barebow', 'Traditional', 'Longbow']
-const SEXES = ['Gents', 'Ladies']
+const SEXES = ['Open', 'Ladies']
 
 const a = crud('archers')
 
+/** Display and maintain archer records using their current database categories. */
 export default function Archers() {
   const [rows, setRows] = useState([])
   const [error, setError] = useState('')
   const [filter, setFilter] = useState({ club: '', bowstyle: '', sex: '' })
 
+  /** Reload archers using the selected filters. */
   const load = async () => {
     try {
       const q = new URLSearchParams()

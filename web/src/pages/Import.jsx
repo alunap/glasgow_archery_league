@@ -1,10 +1,13 @@
+// Preview and review Results workbook rows before replacing an event's scores.
 import { useEffect, useState, useRef } from 'react'
 import api from '../api.js'
+import { matchEditedArcher, prepareImportRow, selectDefaultEvent } from '../import-utils.js'
 
-const SEXES = ['Gents', 'Ladies']
-const BOWSTYLES = ['Recurve', 'Compound', 'Barebow', 'Traditional', 'Longbow']
+const SEXES = ['Open', 'Ladies']
+const BOWSTYLES = ['Recurve', 'Compound', 'Barebow', 'Traditional']
 const CLUBS = ['Glasgow', 'Strathclyde', 'East Kilbride', 'Monklands', 'Linwood', "Orion's", 'UWS', 'Giffnock']
 
+/** Let administrators review and commit one event's workbook scores. */
 export default function Import() {
   const [events, setEvents] = useState([])
   const [eventId, setEventId] = useState('')
@@ -19,11 +22,11 @@ export default function Import() {
   useEffect(() => {
     api.events().then((es) => {
       setEvents(es)
-      // default to the latest event
-      if (es.length) setEventId(String(es[0].id))
+      setEventId(selectDefaultEvent(es))
     }).catch((e) => setError(e.message))
   }, [])
 
+  /** Parse the selected workbook and load the review rows. */
   const doPreview = async () => {
     setError(''); setMsg(''); setPreview(null); setNewArchers([])
     if (!file) { setError('Choose an xlsx file first'); return }
@@ -40,17 +43,26 @@ export default function Import() {
     setBusy(false)
   }
 
+  /** Update a field on one new-archer review row. */
   const setNewArcherField = (i, key, val) => {
     setNewArchers((arr) => arr.map((a, idx) => (idx === i ? { ...a, [key]: val } : a)))
   }
 
-  const missingSex = newArchers.filter((a) => !SEXES.includes(a.sex))
-  const canCommit = preview && newArchers.length >= 0 && missingSex.length === 0
+  const catalog = preview?.archerCatalog || []
+  const matchedCount = newArchers.filter((a) => matchEditedArcher(a, catalog)).length
+  const missingSex = newArchers.filter((a) => !matchEditedArcher(a, catalog) && !SEXES.includes(a.sex))
+  const invalidDetails = newArchers.filter((a) => !a.archer.trim() || !CLUBS.includes(a.club) || !BOWSTYLES.includes(a.bowstyle))
+  const canCommit = preview && missingSex.length === 0 && invalidDetails.length === 0
 
+  /** Submit reviewed scores for the selected event. */
   const doCommit = async () => {
     setError(''); setMsg('')
     if (missingSex.length) {
       setError(`Set sex for ${missingSex.length} new archer(s) before committing.`)
+      return
+    }
+    if (invalidDetails.length) {
+      setError(`Set a valid name, club and bowstyle for ${invalidDetails.length} archer(s) before committing.`)
       return
     }
     setBusy(true)
@@ -61,14 +73,13 @@ export default function Import() {
           score: k.score, hits: k.hits, golds: k.golds,
           archer_id: k.archer_id, isNew: false
         })),
-        ...newArchers.map((n) => ({
-          archer: n.archer, club: n.club, bowstyle: n.bowstyle, sex: n.sex,
-          score: n.score, hits: n.hits, golds: n.golds,
-          isNew: true
-        }))
+        ...newArchers.map((n) => prepareImportRow(n, catalog))
       ]
       const r = await api.importCommit({ event_id: Number(eventId), rows })
       setMsg(`Committed: ${r.newArchers} new archer(s), ${r.scoresInserted} score(s) for event ${r.event_id}. DuckDB event_scores now ${r.duckdb?.event_scores}.`)
+      const updatedEvents = events.map((ev) => Number(ev.id) === Number(eventId) ? { ...ev, has_scores: true } : ev)
+      setEvents(updatedEvents)
+      setEventId(selectDefaultEvent(updatedEvents))
       setPreview(null); setNewArchers([]); setFile(null)
       if (fileRef.current) fileRef.current.value = ''
     } catch (e) { setError(e.message) }
@@ -79,9 +90,9 @@ export default function Import() {
     <div>
       <h1>Import monthly Excel</h1>
       <p className="muted">
-        Upload a "Team Scores" xlsx. The parser reads per-club blocks (bowstyle codes RC/C/BB/TRAD;
-        Tens → golds). New archers are highlighted and require a sex before commit. Committing
-        replaces that event's scores in Postgres and refreshes the DuckDB mirror.
+        Upload an xlsx with a "Results" sheet. The parser reads archer details and scores,
+        maps Longbow to Traditional and Tens to golds. Review new archers and any sex mismatches.
+        Committing replaces that event's scores in Postgres and refreshes the DuckDB mirror.
       </p>
 
       {error && <div className="error">{error}</div>}
@@ -90,11 +101,11 @@ export default function Import() {
       <div className="card">
         <div className="toolbar">
           <label className="muted">Event
-            <select value={eventId} onChange={(e) => setEventId(e.target.value)}>
+            <select value={eventId} disabled={busy} onChange={(e) => { setEventId(e.target.value); setPreview(null); setNewArchers([]) }}>
               <option value="">Select…</option>
               {events.map((ev) => (
                 <option key={ev.id} value={ev.id}>
-                  {ev.id}: {(ev.date_of_event || '').slice(0, 10)} {ev.venue_name ? `@ ${ev.venue_name}` : ''} (Stage {ev.round})
+                  {ev.id}: {(ev.date_of_event || '').slice(0, 10)} {ev.venue_name ? `@ ${ev.venue_name}` : ''} (Stage {ev.round}){ev.has_scores ? ' — imported' : ''}
                 </option>
               ))}
             </select>
@@ -104,7 +115,8 @@ export default function Import() {
               ref={fileRef}
               type="file"
               accept=".xlsx,.ods"
-              onChange={(e) => setFile(e.target.files[0])}
+              disabled={busy}
+              onChange={(e) => { setFile(e.target.files[0]); setPreview(null); setNewArchers([]) }}
               style={{ width: 'auto' }}
             />
           </label>
@@ -118,18 +130,21 @@ export default function Import() {
             <div className="row between">
               <h2 style={{ margin: 0 }}>Preview</h2>
               <span className="muted">
-                {preview.counts.total} rows — {preview.counts.known} known, {preview.counts.new} new
+                {preview.counts.total} rows — {preview.counts.known + matchedCount} known, {newArchers.length - matchedCount} new
               </span>
             </div>
             <p className="muted" style={{ margin: '0.5rem 0' }}>
               Event: {preview.event.id} — {(preview.event.date_of_event || '').slice(0, 10)} @ {preview.event.venue_name}
             </p>
-            {preview.meta.title && <p className="muted">Sheet: {preview.meta.sheetName} — {preview.meta.title}</p>}
+            <p className="muted">Sheet: {preview.meta.sheetName}</p>
           </div>
 
           {newArchers.length > 0 && (
             <div className="card">
-              <h2>New archers — set sex (required)</h2>
+              <h2>Review new or corrected archers</h2>
+              <datalist id="known-archer-names">
+                {[...new Set(catalog.map((a) => a.archer))].map((name) => <option key={name} value={name} />)}
+              </datalist>
               <table className="editable">
                 <thead>
                   <tr>
@@ -138,35 +153,50 @@ export default function Import() {
                   </tr>
                 </thead>
                 <tbody>
-                  {newArchers.map((a, i) => (
-                    <tr key={i} className="row-new">
-                      <td>{a.archer}</td>
+                  {newArchers.map((a, i) => {
+                    const match = matchEditedArcher(a, catalog)
+                    return <tr key={i} className="row-new">
                       <td className="cell-edit">
-                        <select value={a.club} onChange={(e) => setNewArcherField(i, 'club', e.target.value)}>
+                        <input
+                          aria-label="Archer name"
+                          list="known-archer-names"
+                          value={a.archer}
+                          disabled={busy}
+                          onChange={(e) => setNewArcherField(i, 'archer', e.target.value)}
+                        />
+                      </td>
+                      <td className="cell-edit">
+                        <select value={CLUBS.includes(a.club) ? a.club : ''} disabled={busy} onChange={(e) => setNewArcherField(i, 'club', e.target.value)}>
                           <option value="">—</option>
                           {CLUBS.map((c) => <option key={c} value={c}>{c}</option>)}
                         </select>
+                        {!CLUBS.includes(a.club) && <span className="badge warn">unknown club: {a.club || 'blank'}</span>}
                       </td>
                       <td className="cell-edit">
-                        <select value={a.bowstyle} onChange={(e) => setNewArcherField(i, 'bowstyle', e.target.value)}>
+                        <select value={BOWSTYLES.includes(a.bowstyle) ? a.bowstyle : ''} disabled={busy} onChange={(e) => setNewArcherField(i, 'bowstyle', e.target.value)}>
                           <option value="">—</option>
                           {BOWSTYLES.map((c) => <option key={c} value={c}>{c}</option>)}
                         </select>
-                        {a.bowstyleUnknown && <span className="badge warn" style={{ marginLeft: 4 }}>unknown code</span>}
+                        {!BOWSTYLES.includes(a.bowstyle) && <span className="badge warn">unknown bowstyle: {a.bowstyle || 'blank'}</span>}
                       </td>
                       <td className="cell-edit">
                         <select
                           value={a.sex}
+                          disabled={busy || !!match}
                           onChange={(e) => setNewArcherField(i, 'sex', e.target.value)}
                           style={!a.sex ? { borderColor: 'var(--warn)' } : undefined}
                         >
                           <option value="">—</option>
                           {SEXES.map((c) => <option key={c} value={c}>{c}</option>)}
                         </select>
+                        {a.sexUnknown && !a.sex && <span className="badge warn">unknown spreadsheet sex</span>}
+                        {match && <span className="badge ok">matched existing archer</span>}
+                        {match && a.sex && a.sex !== match.sex && <span className="badge warn">database sex: {match.sex || 'unset'} (unchanged)</span>}
+                        {match?.alreadyImported && <span className="badge warn">already imported (will be replaced)</span>}
                       </td>
                       <td>{a.score}</td><td>{a.hits}</td><td>{a.golds}</td>
                     </tr>
-                  ))}
+                  })}
                 </tbody>
               </table>
             </div>
@@ -189,7 +219,9 @@ export default function Import() {
                     <td>
                       {k.alreadyImported && <span className="badge warn">already imported (will be replaced)</span>}
                       {k.bowstyleUnknown && <span className="badge danger">unknown bowstyle</span>}
-                      {!k.alreadyImported && !k.bowstyleUnknown && <span className="badge ok">ok</span>}
+                      {k.sexMismatch && <span className="badge warn">spreadsheet sex: {k.sheetSex}; database unchanged</span>}
+                      {k.sexUnknown && <span className="badge warn">unknown spreadsheet sex</span>}
+                      {!k.alreadyImported && !k.bowstyleUnknown && !k.sexMismatch && !k.sexUnknown && <span className="badge ok">ok</span>}
                     </td>
                   </tr>
                 ))}
@@ -203,6 +235,9 @@ export default function Import() {
             </button>
             {missingSex.length > 0 && (
               <span className="badge warn">{missingSex.length} new archer(s) missing sex</span>
+            )}
+            {invalidDetails.length > 0 && (
+              <span className="badge warn">{invalidDetails.length} archer(s) need a valid name, club or bowstyle</span>
             )}
           </div>
         </>

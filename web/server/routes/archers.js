@@ -1,3 +1,4 @@
+// Manage archer records and expose their highest qualifying badge.
 import { Router } from 'express'
 import { pool } from '../db.js'
 import { syncDuckDB } from '../duckdb-sync.js'
@@ -5,7 +6,7 @@ import { syncDuckDB } from '../duckdb-sync.js'
 const router = Router()
 
 const COLS = ['archer', 'club', 'bowstyle', 'sex']
-const SEXES = ['Gents', 'Ladies']
+const SEXES = ['Open', 'Ladies']
 const BOWSTYLES = ['Recurve', 'Compound', 'Barebow', 'Traditional', 'Longbow']
 
 // GET /api/archers?club=&bowstyle=&sex=
